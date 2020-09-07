@@ -1,0 +1,35 @@
+# vimスクリプト
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = ["toml"]
+
+# 補完プラグインがなくてもfiletypeのsyntaxから引っ張り出す
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+# lookコマンドから
+# [[plugins]]
+# repo = 'ujihisa/neco-look'
+
+# マークダウンをする
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = ['markdown']
+
+# マークダウンをプレビューする
+[[plugins]]
+repo = "iamcco/markdown-preview.vim"
+on_ft = ["markdown"]
+
+# マークダウンをプレビューする
+# こっちはサブ
+[[plugins]]
+repo = "previm/previm"
+
+# Writ teh LOLCODE
+[[plugins]]
+repo = "Xe/lolcode.vim"
+
+# tomlのsyantax
+[[plugins]]
+repo = 'cespare/vim-toml'
