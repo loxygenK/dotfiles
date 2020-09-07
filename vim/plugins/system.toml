@@ -1,0 +1,98 @@
+# 世界の始まり
+[[plugins]]
+repo = "Shougo/dein.vim"
+
+# Neovitのフレームワークだと思います
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+# ソケットで通信してなんかできるやつ
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+# 補完の始まり
+[[plugins]]
+repo = "Shougo/deoplete.nvim"
+hook_add = '''
+
+" let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_auto_delimiter = 1
+"let g:deoplete#enable_smart_case = 1
+
+let g:deoplete#sources#jedi#server_timeout=100
+let g:deoplete#sources#jedi#statement_length=100
+
+let g:jedi#completions#enabled=0
+
+  let g:deoplete#enable_at_startup = 1
+  "Tab補完の設定
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+"imap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
+"			\   neosnippet#jumpable() ?
+"			\   "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+" \ pumvisible() ? "<C-y>" : "<CR>"
+
+"imap <expr><CR> pumvisible() ?
+"\ 	neosnippet#mappings#expandable() ? 
+"\			"<Plug>(neosnippet_expand_or_jump)" :
+"\ 		pumvisible() ? 
+"\ 			"<C-y>" : "<CR>"
+" \		: "<CR>"
+
+call deoplete#enable()
+
+'''
+
+[[plugins]]
+repo = "w0rp/ale"
+
+# つよつよLinter+Fixer
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = """
+	" 何のLinterとFixerを使うか
+	let g:ale_linters = {
+				\	'c': ['clangd'],
+				\ 'cpp': ['clangd'],
+				\	'text': ['textlint']
+				\}
+	let g:ale_fixers = {
+				\	'python': ['autopep8', 'isort'],
+				\ 'dart': ['dartfmt']
+				\}
+
+	" 保存時に勝手にfixする
+	let g:ale_fix_on_save = 1
+
+	" エラーが出てなくても左の帯を出す
+	let g:ale_sign_column_always = 1
+
+	" すぐLintする
+	let g:ale_lint_delay = 0
+
+	let g:ale_set_balloons = 1
+	let g:ale_set_loclist = 0
+	let g:ale_set_quickfix = 1
+
+	let g:ale_sign_error = "=>"
+	let g:ale_sign_warning = "->"
+
+	let g:ale_echo_msg_format = "%linter%: %s"
+
+	let g:ale_open_list = 1
+	let g:ale_keep_list_window_open = 1
+"""
+hook_source = """
+"	ALELint
+"""
+depends=["ale"]
+
+# Language Serverから引っ張ってくる
+# [[plugins]]
+# repo = 'natebosch/vim-lsc'
+# hook_add="""
+# let g:lsc_auto_map = v:true
+# """

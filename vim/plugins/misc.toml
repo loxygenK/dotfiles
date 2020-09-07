@@ -1,0 +1,96 @@
+
+# ファイルビューア
+[[plugins]]
+repo = "preservim/nerdtree"
+hook_add = '''
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+'''
+
+# カラーテーマ
+[[plugins]]
+repo = "tomasr/molokai"
+
+# カラーテーマ
+[[plugins]]
+repo = "morhetz/gruvbox"
+
+# カラーテーマ
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+# カラーテーマ
+[[plugins]]
+repo = "gryf/wombat256grf"
+
+# ステータスバーをおしゃんにする
+[[plugins]]
+repo = "itchyny/lightline.vim"
+
+# Gitで便利
+[[plugins]]
+repo = "tpope/vim-fugitive"
+
+# スニペットを使えるようにする
+[[plugins]]
+repo = "Shougo/neosnippet.vim"
+hook_add = '''
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+"if has('conceal')
+"set conceallevel=2 concealcursor=niv
+"endif
+'''
+on_i = 1
+
+# デフォルトのスニペット＋カスタムのスニペット
+[[plugins]]
+repo = "Shougo/neosnippet-snippets"
+hook_add = """
+	let g:neosnippet#snippets_directory="~/.dotfiles/vim/snippets/"
+"""
+
+# いっそうくん直伝のスニペット系プラグイン
+[[plugins]]
+repo = "honza/vim-snippets"
+
+# 複数のファイルタイプが混合するファイルで
+# 幸せになれる
+[[plugins]]
+repo = "Shougo/context_filetype.vim"
+
+# 幸せみを加速する
+[[plugins]]
+repo = "osyo-manga/vim-precious"
+depends = ["context_filetype.vim"]
+hook_add = """
+	let g:context_filetype#filetypes = {}
+  let g:context_filetype#filetypes.progrep = [
+			\         {
+			\           'filetype' : 'c',
+			\           'start' : '^\s*■ソースコード\s*$',
+			\           'end' : '^\s*■実行結果\s*$'
+			\         }
+			\     ]
+"""
+
+# かっこがカラフルになる
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+let g:rainbow_active = 1
+'''
+
+# 爆速コマンド実行er
+[[plugins]]
+repo = "thinca/vim-quickrun"
+
+# 閉じかっこを自動で挿入する
+[[plugins]]
+repo = "cohama/lexima.vim"
+
+# Gitの差分を表示する
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+

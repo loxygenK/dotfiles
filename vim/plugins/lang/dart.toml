@@ -1,0 +1,21 @@
+# dart専用
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart']
+hook_add = '''
+nnoremap fr :FlutterHotReload<CR>
+nnoremap fR :FlutterHotRestart<CR>
+nnoremap fB :FlutterRun<CR>
+'''
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_ft = ['dart']
+ [[plugins]]
+ t
+
+# repo = 'natebosch/vim-lsc-dart'
+
