@@ -28,3 +28,6 @@ print "   \e[38;5;243m└─ \e[38;5;48;1mDone! \e[;38;5;071m($(echo $ELAPSED_TI
 # echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
 echo ""
 echo "\e[38;5;120;1m --- † `whoami`'s $ZSH_NAME READY † ---\e[m"
+echo "--> Changing shell to fish..."
+echo ""
+exec fish
