@@ -68,14 +68,14 @@ end
 function hentai_yarn
 	# more word needed, pr is welcome!
 	# (yes im crazy, i dont even know why i did this)
-	set words (	
-		"やっ…んッ♡ " 
-		"やぁんッ♡ " 
-		"やぁぁ…んん♡ " 
-		"やぁッ…ん♡ " 
-		"やーん" 
-		"にゃーん" 
-	)
-	local word (math (random) % (count $testarray) + 1)
-	echo -e "\e[38;5;213;1myarn $word\e[m"
+	set words \
+		"やっ…んッ♡ " \
+		"やぁんッ♡ " \
+		"やぁぁ…んん♡ " \
+		"やぁッ…ん♡ " \
+		"やーん" \
+		"にゃーん"
+
+	set word $words[(math (random) % (count $words) + 1)]
+	echo -e "\e[38;5;213;1myarn \"$word\"\e[m"
 end
