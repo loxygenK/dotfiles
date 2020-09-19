@@ -6,8 +6,10 @@ end
 
 set FISHCONFIGD_LOCATION "$HOME/.dotfiles/fish/fish.config.d"
 
+echo -e "\e[38;5;087m=> \e[1m[Fish]\e[m"
+echo -e " \e[38;5;80;1mCaught the baton!\e[m"
 echo -e ""
-echo -e "\e[38;5;120;1m --- † Zsh Environment Constructing † ---\e[m"
+echo -e "\e[38;5;120;1m --- † Fish Environment Constructing † ---\e[m"
 echo -e ""
 echo -e " \e[38;5;75;1mLoading \e[38;5;80;1m$FISHCONFIGD_LOCATION\e[m"
 
@@ -32,4 +34,4 @@ cd $__STARTUP_DIR
 
 # echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
 echo ""
-echo -e "\e[38;5;120;1m --- † "(whoami)"'s $ZSH_NAME READY † ---\e[m"
+echo -e "\e[38;5;120;1m --- † "(whoami)"'s Fish READY † ---\e[m"

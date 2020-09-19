@@ -50,8 +50,8 @@ end
 
 function color_sample
 	echo -e "usage: \\\\e[38;5;\$color;1m ... \\\\e[m"
-	for c in {000..255}
-		echo -n "\e[38;5;$c;1m $c \e[m"
+	for c in (seq 0 255)
+		printf "\e[38;5;%d;1m %03d \e[m" $c $c
 		[ (math $c%16) -eq 15 ] && echo
 	end
 	echo
