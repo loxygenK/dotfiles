@@ -7,7 +7,7 @@ alias yarn='hentai_yarn && '(which yarn)
 alias iyarn="hentai_yarn"
 
 # Unsexialize
-alias nyarn='"yarn"'
+alias nyarn=(which yarn)
 
 # vimをnvimに、nvをnvimに
 alias vim="nvim"
