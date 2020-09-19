@@ -1,3 +1,10 @@
+echo "--> Changing shell to fish..."
+echo ""
+exec fish
+
+# --- Here we won't run
+exit 0
+
 case "$TERM" in
 	linux)
 		[ -n "$FBTERM" ] && export TERM=fbterm
@@ -36,6 +43,3 @@ cd $__STARTUP_DIR
 echo ""
 echo "\e[38;5;120;1m --- † `whoami`'s $ZSH_NAME READY † ---\e[m"
 
-echo "--> Changing shell to fish..."
-echo ""
-exec fish
