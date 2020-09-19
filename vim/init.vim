@@ -168,10 +168,15 @@ nnoremap cd :cd
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
 autocmd DirChanged * :NERDTreeCWD
 
-" babelrc、jsonになってほしい
+" いろんなファイルのファイルタイプを手動で設定する
+autocmd BufNewFile,BufRead,BufEnter .babelrc set filetype=json
+autocmd BufNewFile,BufRead,BufEnter *.fish set filetype=fish
+autocmd BufNewFile,BufRead,BufEnter *.fish set syntax=fish
 
-autocmd BufNewFile,BufRead .babelrc set filetype="json"
+" Insertを抜けたときにPasteモードを自動解除する
 autocmd InsertLeave * set nopaste
+
+" Insertを抜けたときにファイルを保存する
 autocmd InsertLeave * call SaveExistingFile()
 
 "カーソル回り込み

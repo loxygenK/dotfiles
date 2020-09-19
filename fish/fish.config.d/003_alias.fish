@@ -1,22 +1,13 @@
 # -----------------------------
 # Alias
 # -----------------------------
-# グローバルエイリアス
-alias -g ":l"='| less'
-alias -g ":h"='| head'
-alias -g ":g"='| grep'
-alias -g ":gi"='| grep -ri'
-
-alias -g "w/osu"="WINEPREFIX=$HOME/.wpfx_osu"
-alias -g "w/tetris"="WINEPREFIX=$HOME/.tetris"
-alias -g "w/gen"="WINEPREFIX=$HOME/.wine"
 
 # Make it more sexy(文字通り)
-alias yarn='hentai_yarn && yarn'
-alias -g "yarn aegu"="hentai_yarn"
+alias yarn='hentai_yarn && '(which yarn)
+alias iyarn="hentai_yarn"
 
 # Unsexialize
-alias nyarn='"yarn"'
+alias nyarn=(which yarn)
 
 # vimをnvimに、nvをnvimに
 alias vim="nvim"
@@ -48,7 +39,7 @@ alias tml='tmux list-window'
 
 alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
-alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+alias drmf='docker stop (docker ps -a -q) && docker rm (docker ps -a -q)'
 
 alias gs="git status"
 alias gb="git branch"

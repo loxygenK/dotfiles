@@ -33,3 +33,7 @@ repo = "Xe/lolcode.vim"
 # tomlのsyantax
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+# Fish設定ファイルのsyntax
+[[plugins]]
+repo = "dag/vim-fish"
