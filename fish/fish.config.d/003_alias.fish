@@ -3,7 +3,7 @@
 # -----------------------------
 
 # Make it more sexy(文字通り)
-alias yarn='hentai_yarn && yarn'
+alias yarn='hentai_yarn && '(which yarn)
 alias iyarn="hentai_yarn"
 
 # Unsexialize
