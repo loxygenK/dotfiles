@@ -22,12 +22,13 @@ echo -e "  \e[38;5;243m│\e[m"
 # 全部終わった
 echo -e "  \e[38;5;243m└─ \e[38;5;48;1m卍 Configuration Done 卍\e[m"
 
-# Dotfilesのリポジトリ情報を表示する
-set __STARTUP_DIR (pwd)
-cd ~/.dotfiles
-echo -e "   Latest Commit: "(git log -1 --date=format:"%H:%M" --pretty='\e[38;5;80m%s\e[m\e[38;5;243m<%h>\e[m (%cd)')
-echo -e "  Current Branch: \e[38;5;80;1m"(git symbolic-ref --short HEAD)"\e[m"
-cd $__STARTUP_DIR
+# Dotfiles関連のリポジトリ情報を表示する
+for output in (latest_commit ~/.dotfiles)
+	echo "  "$output
+end
+for output in (latest_commit ~/.blin-tool)
+	echo "  "$output
+end
 
 # プロンプトとの余白
 echo ""

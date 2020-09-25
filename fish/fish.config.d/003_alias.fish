@@ -2,62 +2,64 @@
 # Alias
 # -----------------------------
 
-# Make it more sexy(文字通り)
+#abbrを一旦初期化する
+for abbr_name in (abbr --list)
+	abbr --erase $abbr_name
+end
+
+# --- ABBR ---
+abbr --add vi 'vim'
+
+abbr --add so 'source'
+abbr --add .. 'c ../'
+abbr --add back 'pushd'
+
+abbr --add tma 'tmux attach'
+abbr --add tml 'tmux list-window'
+
+abbr --add dki "docker run -i -t -P"
+abbr --add dex "docker exec -i -t"
+abbr --add drmf 'docker stop (docker ps -a -q) && docker rm (docker ps -a -q)'
+
+abbr --add gs "git status"
+abbr --add gb "git branch"
+abbr --add gp "git push origin "
+abbr --add gg "git log --oneline --graph"
+
+abbr --add python "python3"
+abbr --add pip "pip3"
+
+abbr --add enc "encrypt"
+abbr --add dec "decrypt"
+
+abbr --add conup "sudo nmcli con up yeah --ask && sudo dhcpcd"
+
+abbr --add お気持ち表明 "fortune -a | cowsay"
+
+# --- ALIAS ---
+
 alias yarn='hentai_yarn && '(which yarn)
 alias iyarn="hentai_yarn"
 
-# Unsexialize
 alias nyarn=(which yarn)
 
-# vimをnvimに、nvをnvimに
 alias vim="nvim"
 alias nv="nvim"
 
-# エイリアス
 alias lst='ls -ltr --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
 
-alias al="sl -a"
+alias al "sl -a"
 
 alias du="du -h"
 alias df="df -Th"
 alias su="su -l"
-alias so='source'
-alias vi='vim'
-alias vz='vim ~/.zshrc'
+
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias ..='c ../'
-alias back='pushd'
 alias diff='diff -U1'
 
-alias tma='tmux attach'
-alias tml='tmux list-window'
-
-alias dki="docker run -i -t -P"
-alias dex="docker exec -i -t"
-alias drmf='docker stop (docker ps -a -q) && docker rm (docker ps -a -q)'
-
-alias gs="git status"
-alias gb="git branch"
-alias gp="git push origin "
-alias gg="git log --oneline --graph"
-
-alias python="python3"
-alias pip="pip3"
-
-alias bt="blin-tool"
-
 alias export-pdf="wkhtmltopdf --print-media-type --header-right '[date]' --header-spacing 2 --footer-center '[page]/[topage]' --footer-spacing 2 --margin-top 20 --margin-right 20 --margin-left 20 --margin-bottom 20"
-
-alias enc="encrypt"
-alias dec="decrypt"
-
-alias reopen="exo-open --launch TerminalEmulator && exit"
-
-alias conup="sudo nmcli con up yeah --ask && sudo dhcpcd"
-
-alias お気持ち表明="fortune -a | cowsay"
