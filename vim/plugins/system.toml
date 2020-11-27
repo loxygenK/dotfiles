@@ -50,3 +50,6 @@ hook_source = """
 "	ALELint
 """
 
+[[plugins]]
+repo = "neoclide/coc.nvim"
+
