@@ -20,7 +20,7 @@ if dein#load_state(g:vim_dir)
 	call dein#begin(g:vim_dir)
 
 	call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
-	call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 0})
+	call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 1})
 
 	let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
@@ -177,6 +177,7 @@ autocmd DirChanged * :NERDTreeCWD
 autocmd BufNewFile,BufRead,BufEnter .babelrc set filetype=json
 autocmd BufNewFile,BufRead,BufEnter *.fish set filetype=fish
 autocmd BufNewFile,BufRead,BufEnter *.fish set syntax=fish
+autocmd BufNewFile,BufRead,BufEnter *.tsx set filetype=typescript.tsx
 
 " Insertを抜けたときにPasteモードを自動解除する
 autocmd InsertLeave * set nopaste
@@ -239,10 +240,15 @@ let g:lightline = {
 			\ 'active': {
 			\   'left': [
 			\							[ 'mode', 'paste' ],
-			\							[ 'fugitive', 'filename' , 'modified', 'ale'],
+			\							[ 'cocstatus', 'modified', 'filename', 'readonly', 'fugitive'],
 			\		]
 			\ },
+			\ 'component_function': {
+			\ 	'cocstatus': 'coc#status'
+			\ }
 			\}
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! LinterStatus()
 	let l:counts = ale#statusline#Count(bufnr(''))
