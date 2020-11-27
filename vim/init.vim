@@ -239,9 +239,6 @@ let g:lightline = {
 			\							[ 'fugitive', 'filename' , 'modified', 'ale'],
 			\		]
 			\ },
-			\ 'component_function': {
-			\		'ale': 'LinterStatus'
-			\ }
 			\}
 
 function! LinterStatus()
