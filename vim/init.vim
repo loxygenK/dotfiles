@@ -49,9 +49,14 @@ nnoremap vtc :VimtexClean<CR>
 nnoremap ce :set conceallevel=2<CR>
 nnoremap cd :set conceallevel=0<CR>
 
+" ----- Python path -----
+let g:python_host_prog=$PYENV_ROOT."/versions/nvim_env_2/bin/python"
+let g:python3_host_prog=$PYENV_ROOT."/versions/nvim_env/bin/python"
+
 " ----- Previm Settings -----
 " let g:previm_open_cmd = "gopen -a Google\ Chrome"
 let g:previm_open_cmd = "xdg-open"
+
 
 " ----- Context-filetype Settings -----
 "let g:context_filetype#filetypes = {
@@ -192,8 +197,6 @@ syntax enable
 
 " ファイルタイプ別のVimプラグイン/インデントを有効にする
 filetype plugin indent on
-
-" 
 
 " ----- Color scheme settings -----
 
