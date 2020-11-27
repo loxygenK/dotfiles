@@ -30,5 +30,13 @@ for output in (latest_commit ~/.blin-tool)
 	echo "  "$output
 end
 
+echo ""
+# 名言
+for output in (meigen_fortune)
+	echo "  "$output
+end
+echo ""
+echo "  Let's do our best again today."
+
 # プロンプトとの余白
 echo ""

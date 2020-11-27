@@ -34,6 +34,10 @@ abbr --add dec "decrypt"
 
 abbr --add conup "sudo nmcli con up yeah --ask && sudo dhcpcd"
 
+abbr --add lcom latest_commit
+
+abbr --add fc flutter_check
+
 abbr --add お気持ち表明 "fortune -a | cowsay"
 
 # --- ALIAS ---
