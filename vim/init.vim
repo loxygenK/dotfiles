@@ -71,7 +71,6 @@ let g:previm_open_cmd = "xdg-open"
 
 " ----- Fundamental Settings ------
 set number "行番号の表示
-set relativenumber "行番号を相対表示する
 set nowrap
 set tabstop=2
 set autoindent
@@ -96,9 +95,6 @@ nnoremap si :set paste<CR>I
 " set wrapされているときに幸せになる
 noremap j gj
 noremap k gk
-
-inoremap <Up> <C-o>gk
-inoremap <Down> <C-o>gj
 
 " ファイルビュー
 nnoremap fm :NERDTree<CR>
@@ -134,10 +130,14 @@ nnoremap szx <C-w>_<C-w>|
 nnoremap szs <C-w>=
 
 " hjklに慣れたい
-noremap <Up> :python3 raise RuntimeWarning("u nuts")<CR>
-noremap <Down> :python3 raise RuntimeWarning("u nuts")<CR>
-noremap <Left> :python3 raise RuntimeWarning("u nuts")<CR>
-noremap <Right> :python3 raise RuntimeWarning("u nuts")<CR>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 " ワードラップをトグルする
 command! ToggleWrap call ToggleWrap()
