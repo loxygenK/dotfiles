@@ -26,3 +26,6 @@ echo -ne "  \e[38;5;243m├─ \e[38;5;75;1mSwitching shell to Zsh --"
 exec fish
 
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+source /usr/share/nvm/init-nvm.sh
