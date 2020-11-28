@@ -20,7 +20,7 @@ if dein#load_state(g:vim_dir)
 	call dein#begin(g:vim_dir)
 
 	call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
-	call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 0})
+	call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 1})
 
 	let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
@@ -49,9 +49,14 @@ nnoremap vtc :VimtexClean<CR>
 nnoremap ce :set conceallevel=2<CR>
 nnoremap cd :set conceallevel=0<CR>
 
+" ----- Python path -----
+let g:python_host_prog=$PYENV_ROOT."/versions/nvim_env_2/bin/python"
+let g:python3_host_prog=$PYENV_ROOT."/versions/nvim_env/bin/python"
+
 " ----- Previm Settings -----
 " let g:previm_open_cmd = "gopen -a Google\ Chrome"
 let g:previm_open_cmd = "xdg-open"
+
 
 " ----- Context-filetype Settings -----
 "let g:context_filetype#filetypes = {
@@ -165,6 +170,29 @@ nnoremap fs :set tabstop=2<CR>
 
 nnoremap cd :cd 
 
+" 補完を使いやすくする
+" From: https://vim.fandom.com/wiki/Improve_completion_popup_menu
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+" もっとVimライクなキーバインドでいろいろできるようにする
+inoremap <expr> <C-J>      pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <C-K>      pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-L>      pumvisible() ? "\<C-y>." : "\<CR>"
+
+" いつからか癖になっている
+inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<Tab>"
+
+" Cocの機能を使う
+nmap <silent> <C-e>      <Plug>(coc-definition)
+nmap <silent> <C-t>      <Plug>(coc-type-definition)
+nmap <silent> <C-i>      <Plug>(coc-implementation)
+nmap <silent> <C-r>      <Plug>(coc-references)
+
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
 autocmd DirChanged * :NERDTreeCWD
 
@@ -172,6 +200,7 @@ autocmd DirChanged * :NERDTreeCWD
 autocmd BufNewFile,BufRead,BufEnter .babelrc set filetype=json
 autocmd BufNewFile,BufRead,BufEnter *.fish set filetype=fish
 autocmd BufNewFile,BufRead,BufEnter *.fish set syntax=fish
+autocmd BufNewFile,BufRead,BufEnter *.tsx set filetype=typescript.tsx
 
 " Insertを抜けたときにPasteモードを自動解除する
 autocmd InsertLeave * set nopaste
@@ -192,8 +221,6 @@ syntax enable
 
 " ファイルタイプ別のVimプラグイン/インデントを有効にする
 filetype plugin indent on
-
-" 
 
 " ----- Color scheme settings -----
 
@@ -236,13 +263,15 @@ let g:lightline = {
 			\ 'active': {
 			\   'left': [
 			\							[ 'mode', 'paste' ],
-			\							[ 'fugitive', 'filename' , 'modified', 'ale'],
+			\							[ 'cocstatus', 'modified', 'filename', 'readonly', 'fugitive'],
 			\		]
 			\ },
 			\ 'component_function': {
-			\		'ale': 'LinterStatus'
+			\ 	'cocstatus': 'coc#status'
 			\ }
 			\}
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! LinterStatus()
 	let l:counts = ale#statusline#Count(bufnr(''))

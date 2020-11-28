@@ -1,31 +1,4 @@
 [[plugins]]
-repo = "othree/yajs.vim"
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = "maxmellon/vim-jsx-pretty"
-on_ft = ['typescript']
-
-[[plugins]]
-repo = "peitalin/vim-jsx-typescript"
-hook_post_source = """
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-"""
-on_ft = ["typescript.tsx"]
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html', 'typescript.tsx']
-
-[[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'xhtml', 'javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 hook_add = '''
@@ -37,4 +10,7 @@ let g:closetag_emptyTags_caseSensitive=1
 let g:closetag_shortcut='>'
 '''
 
+[[plugins]]
+repo = "maxmellon/vim-jsx-pretty"
+on_ft = ["javascript", "typescript.tsx"]
 
