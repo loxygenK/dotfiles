@@ -188,7 +188,7 @@ inoremap <expr> <C-L>      pumvisible() ? "\<C-y>." : "\<CR>"
 inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Cocの機能を使う
-nmap <silent> <C-d>      <Plug>(coc-definition)
+nmap <silent> <C-e>      <Plug>(coc-definition)
 nmap <silent> <C-t>      <Plug>(coc-type-definition)
 nmap <silent> <C-i>      <Plug>(coc-implementation)
 nmap <silent> <C-r>      <Plug>(coc-references)
