@@ -170,6 +170,29 @@ nnoremap fs :set tabstop=2<CR>
 
 nnoremap cd :cd 
 
+" 補完を使いやすくする
+" From: https://vim.fandom.com/wiki/Improve_completion_popup_menu
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+" もっとVimライクなキーバインドでいろいろできるようにする
+inoremap <expr> <C-J>      pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <C-K>      pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-L>      pumvisible() ? "\<C-y>." : "\<CR>"
+
+" いつからか癖になっている
+inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<Tab>"
+
+" Cocの機能を使う
+nmap <silent> <C-d>      <Plug>(coc-definition)
+nmap <silent> <C-t>      <Plug>(coc-type-definition)
+nmap <silent> <C-i>      <Plug>(coc-implementation)
+nmap <silent> <C-r>      <Plug>(coc-references)
+
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
 autocmd DirChanged * :NERDTreeCWD
 
