@@ -36,7 +36,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.selfmade_nice_programs
 
 eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Flutterのために
 export PATH="$PATH:$HOME/.flutter/bin"

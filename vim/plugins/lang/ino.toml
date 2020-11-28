@@ -1,3 +1,0 @@
-# ArduinoをVimでやる
-[[plugins]]
-repo = "sudar/vim-arduino-syntax"

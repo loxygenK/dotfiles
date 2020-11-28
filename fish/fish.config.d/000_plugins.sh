@@ -6,3 +6,4 @@ function nvm
 end
 
 nvm use default --silent
+status --is-interactive; and source (pyenv init -|psub)

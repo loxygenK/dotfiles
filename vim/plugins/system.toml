@@ -10,45 +10,6 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-# 補完の始まり
-[[plugins]]
-repo = "Shougo/deoplete.nvim"
-hook_add = '''
-
-" let g:deoplete#enable_at_startup = 1
-"let g:deoplete#enable_auto_delimiter = 1
-"let g:deoplete#enable_smart_case = 1
-
-let g:deoplete#sources#jedi#server_timeout=100
-let g:deoplete#sources#jedi#statement_length=100
-
-let g:jedi#completions#enabled=0
-
-  let g:deoplete#enable_at_startup = 1
-  "Tab補完の設定
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-"imap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
-"			\   neosnippet#jumpable() ?
-"			\   "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-" \ pumvisible() ? "<C-y>" : "<CR>"
-
-"imap <expr><CR> pumvisible() ?
-"\ 	neosnippet#mappings#expandable() ? 
-"\			"<Plug>(neosnippet_expand_or_jump)" :
-"\ 		pumvisible() ? 
-"\ 			"<C-y>" : "<CR>"
-" \		: "<CR>"
-
-call deoplete#enable()
-
-'''
-
-[[plugins]]
-repo = "w0rp/ale"
-
 # つよつよLinter+Fixer
 [[plugins]]
 repo = 'dense-analysis/ale'
@@ -88,11 +49,7 @@ hook_add = """
 hook_source = """
 "	ALELint
 """
-depends=["ale"]
 
-# Language Serverから引っ張ってくる
-# [[plugins]]
-# repo = 'natebosch/vim-lsc'
-# hook_add="""
-# let g:lsc_auto_map = v:true
-# """
+[[plugins]]
+repo = "neoclide/coc.nvim"
+
