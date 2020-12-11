@@ -88,6 +88,8 @@ set cursorcolumn
 
 set scrolloff=3
 
+set expandtab
+retab 2
 " ----- Key Mapping -----
 
 
