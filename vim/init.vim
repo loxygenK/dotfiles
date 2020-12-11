@@ -211,10 +211,9 @@ autocmd BufNewFile,BufRead,BufEnter *.fish set filetype=fish
 autocmd BufNewFile,BufRead,BufEnter *.fish set syntax=fish
 autocmd BufNewFile,BufRead,BufEnter *.tsx set filetype=typescript.tsx
 
-" Insertを抜けたときにPasteモードを自動解除する
+" babelrc、jsonになってほしい
+autocmd BufNewFile,BufRead .babelrc set filetype="json"
 autocmd InsertLeave * set nopaste
-
-" Insertを抜けたときにファイルを保存する
 autocmd InsertLeave * call SaveExistingFile()
 
 "カーソル回り込み
