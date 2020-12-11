@@ -10,3 +10,10 @@ on_ft = ["markdown"]
 # tomlのsyantax
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+# Dartのファイルタイプ認識・シンタックス
+[[plugins]]
+repo = "dart-lang/dart-vim-plugin"
+
+[[plugins]]
+repo = "thosakwe/vim-flutter"

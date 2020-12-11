@@ -25,6 +25,7 @@ if dein#load_state(g:vim_dir)
 	let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
 	for file in toml_list
+                echom "[Init] loading " . file
 		call dein#load_toml(file)
 	endfor
 
@@ -88,6 +89,8 @@ set cursorcolumn
 
 set scrolloff=3
 
+set expandtab
+retab 2
 " ----- Key Mapping -----
 
 
@@ -193,6 +196,12 @@ nmap <silent> <C-t>      <Plug>(coc-type-definition)
 nmap <silent> <C-i>      <Plug>(coc-implementation)
 nmap <silent> <C-r>      <Plug>(coc-references)
 
+let mapleader = " "
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+nmap <C-m> <leader>aw
+
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
 autocmd DirChanged * :NERDTreeCWD
 
@@ -254,6 +263,17 @@ autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#00aa00
 
 colorscheme gruvbox
 " autocmd vimenter * colorscheme molokai
+
+"
+" Overriding theme settings
+" 行末の空白を表示する
+set list
+
+set listchars=tab:>-,trail:*,eol:.,extends:→,precedes:←,nbsp:%
+highlight ExtraWhitespace ctermbg=73 guibg=#557070
+highlight Whitespace guifg=#4d5c5c
+match WhiteSpace /\s\+/
+match ExtraWhitespace /\s\+$/
 
 " ----- Lightline -----
 
