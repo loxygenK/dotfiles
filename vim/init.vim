@@ -193,6 +193,12 @@ nmap <silent> <C-t>      <Plug>(coc-type-definition)
 nmap <silent> <C-i>      <Plug>(coc-implementation)
 nmap <silent> <C-r>      <Plug>(coc-references)
 
+let mapleader = " "
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+nmap <C-m> <leader>aw
+
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
 autocmd DirChanged * :NERDTreeCWD
 
