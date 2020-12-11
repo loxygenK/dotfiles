@@ -264,6 +264,17 @@ autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#00aa00
 colorscheme gruvbox
 " autocmd vimenter * colorscheme molokai
 
+"
+" Overriding theme settings
+" 行末の空白を表示する
+set list
+
+set listchars=tab:>-,trail:*,eol:.,extends:→,precedes:←,nbsp:%
+highlight ExtraWhitespace ctermbg=73 guibg=#557070
+highlight Whitespace guifg=#4d5c5c
+match WhiteSpace /\s\+/
+match ExtraWhitespace /\s\+$/
+
 " ----- Lightline -----
 
 let g:lightline = {
