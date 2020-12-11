@@ -25,6 +25,7 @@ if dein#load_state(g:vim_dir)
 	let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
 	for file in toml_list
+                echom "[Init] loading " . file
 		call dein#load_toml(file)
 	endfor
 
