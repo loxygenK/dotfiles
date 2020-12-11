@@ -73,6 +73,13 @@ hook_add = """
 			\           'end' : '^\s*■実行結果\s*$'
 			\         }
 			\     ]
+" let g:context_filetype#filetypes["typescript.tsx"] = [
+" 		\					{
+" 		\						'filetype' : 'css',
+" 		\						'start' : '^\s*const\s\+\w\+\s\+=\s\+styled.\w\+`\s*$',
+" 		\						'end' : '\s*`;\s*'
+" 		\					}
+" 		\		  ]
 """
 
 # かっこがカラフルになる
