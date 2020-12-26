@@ -46,11 +46,16 @@ alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 alias gs="git status"
 alias gb="git branch"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gc="git checkout"
 alias gp="git push origin "
 alias gg="git log --oneline --graph"
 
 alias python="python3"
 alias pip="pip3"
+
+alias pvr="pipenv run"
 
 alias bt="blin-tool"
 
