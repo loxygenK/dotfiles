@@ -4,5 +4,8 @@
 			"command": "~/.nvim/lsp/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
 			"filetypes": ["kotlin"]
 		}
-	}
+	},
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json": "**/docker-compose*.yml"
+  }
 }
