@@ -47,7 +47,7 @@ function gs() {
   cut -d: -f1
 }
 
-function vc(){
+function vcl(){
 	vim clang-$1.c && gcc clang-$1.c -o out-c-$1.a && chmod 777 out-c-$1.a && ./out-c-$1.a
 }
 
