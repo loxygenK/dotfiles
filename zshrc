@@ -29,8 +29,6 @@ done
 local ELAPSED_TIME=$(($(date +%s.%N) - $START_TIME))
 print "   \e[38;5;243m└─ \e[38;5;48;1mDone! \e[;38;5;071m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-source /usr/share/nvm/init-nvm.sh
 # echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
 echo ""
 echo "\e[38;5;120;1m --- † `whoami`'s $ZSH_NAME READY † ---\e[m"
