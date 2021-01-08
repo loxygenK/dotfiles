@@ -1,8 +1,3 @@
-function t()
-{
-  tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g')
-}
-
 function psgrep() {
   ps aux | grep -v grep | grep "USER.*COMMAND"
   ps aux | grep -v grep | grep $1
