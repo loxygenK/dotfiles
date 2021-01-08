@@ -44,7 +44,7 @@ alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
-alias gs="git status"
+alias gs="git status -bs"
 alias gb="git branch"
 alias gd="git diff"
 alias gds="git diff --staged"
@@ -60,3 +60,5 @@ alias pvr="pipenv run"
 alias bt="blin-tool"
 
 alias export-pdf="wkhtmltopdf --print-media-type --header-right '[date]' --header-spacing 2 --footer-center '[page]/[topage]' --footer-spacing 2 --margin-top 20 --margin-right 20 --margin-left 20 --margin-bottom 20"
+
+alias gmc="gitmoji -c"
