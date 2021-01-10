@@ -23,3 +23,5 @@ label=
 command=date +'%m/%d(%a) %H:%M'
 interval=1
 
+
+# vim: set ft=toml :
