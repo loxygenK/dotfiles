@@ -1,0 +1,27 @@
+[uptime]
+label= 
+command=uptime | sed 's/.*up \([^,]*\),.*/\1/'
+interval=60
+
+[load average]
+label= 
+command=echo "$(uptime | sed 's/.*load average: \(.*\)/\1/' | cut -d, -f1)/$(grep 'processor' /proc/cpuinfo | wc -l)"
+interval=1
+
+[environmnet]
+label= 
+command=~/.config/i3blocks/scripts/environment.py
+interval=persist
+
+[volume]
+label= 
+command=~/.config/i3blocks/scripts/volume.sh
+interval=persist
+
+[date]
+label=
+command=date +'%m/%d(%a) %H:%M'
+interval=1
+
+
+# vim: set ft=toml :

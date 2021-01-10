@@ -1,0 +1,220 @@
+# i3-config-wizard made the cool configuration file for me,
+# and flisan modified it
+#
+# i3 config file (v4)
+#
+
+############## Design Configuration ################
+
+##### Define Colors #####
+set $background #cacceb
+set $workspace_container #a9aac2
+set $focus_back #cacceb
+set $border #5d5e6e
+set $foreground #3a3a40
+set $focus_fore #1c1c1f
+set $flip_fore #cacceb
+set $focus #47496b
+set $emergency #d1828e
+
+##### Title bar configuration #####
+font pango:JetBrainsMono Nerd Font Mono Bold 9.5
+title_align center
+
+##### Window Colors/Layouts #####
+for_window [class="^.*"] border pixel 2
+
+client.focused $focus $focus $flip_fore
+client.focused_inactive $focus $focus $foreground $foreground
+client.unfocused $focus $focus $foreground $foreground
+client.urgent $emergency $emergency $flip_fore $flip_fore
+gaps inner 20
+# smart_gaps on
+
+############## Auto-start Configuration ######################
+
+##### System tools #######
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+
+##### Nice tools #####
+exec --no-startup-id fcitx
+exec --no-startup-id dunst
+exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper.png"
+exec --no-startup-id "compton -cb"
+
+############## Keybind Configuration ##################
+
+# Use super key (means Windows key) as modification key
+set $mod Mod4
+floating_modifier $mod
+
+# Win+Shift+Q kills window
+bindsym $mod+Shift+q kill
+
+##### Change focusing window #####
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+##### Move focusing window #####
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+##### Modify Layout #####
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+- split h
+bindsym $mod+| split v
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+##### Execute software #####
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d exec --no-startup-id dmenu_run -b -i -p "Dmenu " -nb "$focus" -nf "$flip_fore" -sb "$background" -sf "$foreground" -fn "Fira Code-9.5"
+
+bindsym $mod+Shift+S exec --no-startup-id flameshot gui
+
+##### Control Computer #####
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+##### Utility Controls #####
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec --no-startup-id \
+        "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
+
+##### Switching Workspace #####
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+##### Modes #####
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+##### Calling Modes #####
+bindsym $mod+r mode "resize"
+
+################### Configurating i3blocks #####################
+
+# For the configuration of contents in i3blocks,
+# see "wm/i3blocks".
+
+bar {
+        height 25
+        status_command i3blocks
+        font pango:Fira Code Retina 9.5
+        mode dock
+        position bottom
+        separator_symbol "･"
+        tray_padding 4
+        colors {
+          background $background
+          focused_background $focus_back
+          statusline $foreground
+          focused_statusline $focus_fore
+          separator $border
+          focused_separator $border
+          focused_workspace $focus $focus $flip_fore
+          active_workspace $focus $focus $flip_fore
+          inactive_workspace $workspace_container $workspace_container $foreground
+          urgent_workspace $emergency $emergency $flip_fore
+        }
+}
