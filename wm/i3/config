@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 ##### Nice tools #####
 exec --no-startup-id fcitx
 exec --no-startup-id dunst
-exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper.png"
+exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper.png"
 exec --no-startup-id "compton -cb"
 
 ############## Keybind Configuration ##################
