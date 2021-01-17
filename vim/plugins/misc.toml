@@ -101,3 +101,12 @@ repo = "cohama/lexima.vim"
 [[plugins]]
 repo = "airblade/vim-gitgutter"
 
+# Extremely fancy file searcher
+[[plugins]]
+repo = "junegunn/fzf"
+build = "./install --all"
+merged = 0
+
+[[plugins]]
+repo = "junegunn/fzf.vim"
+
