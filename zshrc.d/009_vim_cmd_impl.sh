@@ -1,12 +1,12 @@
 function q() {
-	echo -e "\nyou are about to quit; really? [yn]"
-	read -q && exit
-	echo -e "\n"
-	zle-line-init
+  echo -e "\nyou are about to quit; really? [yn]"
+  read -q && exit
+  echo -e "\n"
+  zle-line-init
 }
 
 function "q!"() {
-	exit
+  exit
 }
 
 zle -N q

@@ -1,9 +1,9 @@
 case "$TERM" in
-	linux)
-		[ -n "$FBTERM" ] && export TERM=fbterm
-		;;
-	*)
-		;;
+  linux)
+    [ -n "$FBTERM" ] && export TERM=fbterm
+    ;;
+  *)
+    ;;
 esac
 
 # Dotfilesのディレクトリとblin-toolのディレクトリを環境変数に設定する
@@ -22,8 +22,8 @@ local START_TIME=$(($(date +%s.%N)))
 # 分割ファイルを読み込む
 PREV_TIME=0
 for file in `find $ZSHRCD_LOCATION -maxdepth 1 -type f | sort`; do
-	print "   \e[38;5;243m├─ \e[38;5;75m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
-	source $file
+  print "   \e[38;5;243m├─ \e[38;5;75m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
+  source $file
 done
 
 local ELAPSED_TIME=$(($(date +%s.%N) - $START_TIME))

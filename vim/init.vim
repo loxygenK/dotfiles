@@ -8,7 +8,7 @@ filetype off
 let g:dein#install_process_timeout = 600
 
 if &compatible
-	set nocompatible               " Be iMproved
+  set nocompatible               " Be iMproved
 endif
 
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -17,20 +17,20 @@ let g:rc_dir = expand("~/.config/nvim/plugins")
 let g:vim_dir = expand("~/.cache/dein")
 if dein#load_state(g:vim_dir)
 
-	call dein#begin(g:vim_dir)
+  call dein#begin(g:vim_dir)
 
-	call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
-	call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 1})
+  call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
+  call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 1})
 
-	let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
+  let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
-	for file in toml_list
+  for file in toml_list
                 echom "[Init] loading " . file
-		call dein#load_toml(file)
-	endfor
+    call dein#load_toml(file)
+  endfor
 
-	call dein#end()
-	call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 
 endif
 
@@ -38,7 +38,7 @@ filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-	call dein#install()
+  call dein#install()
 endif
 
 " ----- LaTeX Settings -----
@@ -61,19 +61,19 @@ let g:previm_open_cmd = "xdg-open"
 
 " ----- Context-filetype Settings -----
 "let g:context_filetype#filetypes = {
-"		\ "markdown" : [
-"		\		{
-"		\     'start' : '\\\\\[',
-"		\     'end' : '\\\\\]',
-"		\     'filetype' : 'tex',
-"		\ 	},
-"		\		{
-"		\			'start' : '^\s*```\s*\(\h\w*\)',
-"		\			'end'		:	'^\s*```$',
-"		\			'filetype':	'\1'
-"		\		}
-"		\	]
-"		\}
+"    \ "markdown" : [
+"    \    {
+"    \     'start' : '\\\\\[',
+"    \     'end' : '\\\\\]',
+"    \     'filetype' : 'tex',
+"    \   },
+"    \    {
+"    \      'start' : '^\s*```\s*\(\h\w*\)',
+"    \      'end'    :  '^\s*```$',
+"    \      'filetype':  '\1'
+"    \    }
+"    \  ]
+"    \}
 
 " ----- Fundamental Settings ------
 set number "行番号の表示
@@ -221,7 +221,7 @@ set whichwrap=b,s,[,],<,>
 
 "マウス操作の有効化
 if has('mouse')
-	set mouse=a
+  set mouse=a
 endif
 
 filetype plugin indent on
@@ -277,54 +277,54 @@ match ExtraWhitespace /\s\+$/
 " ----- Lightline -----
 
 let g:lightline = {
-			\ 'colorscheme': 'gruvbox',
-			\ 'mode_map': {'c': 'NORMAL'},
-			\ 'active': {
-			\   'left': [
-			\							[ 'mode', 'paste' ],
-			\							[ 'cocstatus', 'modified', 'filename', 'readonly', 'fugitive'],
-			\		]
-			\ },
-			\ 'component_function': {
-			\ 	'cocstatus': 'coc#status'
-			\ }
-			\}
+      \ 'colorscheme': 'gruvbox',
+      \ 'mode_map': {'c': 'NORMAL'},
+      \ 'active': {
+      \   'left': [
+      \              [ 'mode', 'paste' ],
+      \              [ 'cocstatus', 'modified', 'filename', 'readonly', 'fugitive'],
+      \    ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ }
+      \}
 
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! LinterStatus()
-	let l:counts = ale#statusline#Count(bufnr(''))
+  let l:counts = ale#statusline#Count(bufnr(''))
 
-	let l:all_errors = l:counts.error + l:counts.style_error
-	let l:all_non_errors = l:counts.total - l:all_errors
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
 
-	return l:counts.total == 0 ? 'YOS' : printf(
-				\   '[%d](%dW %dE)',
-				\		l:counts.total,
-				\   all_non_errors,
-				\   all_errors
-				\)
+  return l:counts.total == 0 ? 'YOS' : printf(
+        \   '[%d](%dW %dE)',
+        \    l:counts.total,
+        \   all_non_errors,
+        \   all_errors
+        \)
 endfunction
 
 " ----- Internal functions -----
 function! SaveExistingFile() abort
-	if expand("%") != "" && &buftype != ""
-		w
-	endif
+  if expand("%") != "" && &buftype != ""
+    w
+  endif
 endfunction
 
 function! ToggleRelativeLine() abort
-	if &rnu
-		set nornu
-	else
-		set rnu
-	endif
+  if &rnu
+    set nornu
+  else
+    set rnu
+  endif
 endfunction
 
 function! ToggleWrap() abort
-	if &wrap
-		set nowrap
-	else
-		set wrap
-	endif
+  if &wrap
+    set nowrap
+  else
+    set wrap
+  endif
 endfunction
