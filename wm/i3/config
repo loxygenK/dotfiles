@@ -106,6 +106,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+d exec --no-startup-id dmenu_run -b -i -p "Dmenu " -nb "$focus" -nf "$flip_fore" -sb "$background" -sf "$foreground" -fn "JetBrainsMono Nerd Font Mono-9.5"
 
+
 bindsym $mod+Shift+S exec --no-startup-id flameshot gui
 
 ##### Control Computer #####
