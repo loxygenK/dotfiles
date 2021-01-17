@@ -18,7 +18,7 @@ function drm()
 # -----------------------------
 
 function is_in_git_repo() {
-	[ -d "./.git" ]
+  [ -d "./.git" ]
 }
 
 function gt() {
@@ -43,41 +43,41 @@ function gs() {
 }
 
 function vcl(){
-	vim clang-$1.c && gcc clang-$1.c -o out-c-$1.a && chmod 777 out-c-$1.a && ./out-c-$1.a
+  vim clang-$1.c && gcc clang-$1.c -o out-c-$1.a && chmod 777 out-c-$1.a && ./out-c-$1.a
 }
 
 function vpp(){
-	vim cplus-$1.cpp && g++ cplus-$1.cpp -o out-cpp-$1.a && chmod 777 out-cpp-$1.a && ./out-cpp-$1.a
+  vim cplus-$1.cpp && g++ cplus-$1.cpp -o out-cpp-$1.a && chmod 777 out-cpp-$1.a && ./out-cpp-$1.a
 }
 
 function vpy(){
-	vim py-$1.py && python py-$1.py
+  vim py-$1.py && python py-$1.py
 }
 
 function color_sample(){
-	echo -e "usage: \\\\e[38;5;\$color;1m ... \\\\e[m"
-	for c in {000..255}; do echo -n "\e[38;5;${c};1m $c \e[m" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+  echo -e "usage: \\\\e[38;5;\$color;1m ... \\\\e[m"
+  for c in {000..255}; do echo -n "\e[38;5;${c};1m $c \e[m" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 }
 
 function encrypt() {
-	vim ~/temp_file && cat ~/temp_file | gpg --encrypt --armor | xsel --clipboard --input && rm -f ~/temp_file
+  vim ~/temp_file && cat ~/temp_file | gpg --encrypt --armor | xsel --clipboard --input && rm -f ~/temp_file
 }
 
 function decrypt() {
-	vim ~/temp_file && cat ~/temp_file | gpg && rm -f ~/temp_file
+  vim ~/temp_file && cat ~/temp_file | gpg && rm -f ~/temp_file
 }
 
 function hentai_yarn() {
-	# more word needed, pr is welcome!
-	# (yes im crazy, i dont even know why i did this)
-	words=( 
-		"やっ…んッ♡ " 
-		"やぁんッ♡ " 
-		"やぁぁ…んん♡ " 
-		"やぁッ…ん♡ " 
-		"やーん" 
-		"にゃーん" 
-	)
-	local idx=$(($RANDOM % $((${#words[*]})) + 1))
-	echo "\e[38;5;213;1myarn \"${words[$idx]}\"\e[m"
+  # more word needed, pr is welcome!
+  # (yes im crazy, i dont even know why i did this)
+  words=( 
+    "やっ…んッ♡ " 
+    "やぁんッ♡ " 
+    "やぁぁ…んん♡ " 
+    "やぁッ…ん♡ " 
+    "やーん" 
+    "にゃーん" 
+  )
+  local idx=$(($RANDOM % $((${#words[*]})) + 1))
+  echo "\e[38;5;213;1myarn \"${words[$idx]}\"\e[m"
 }
