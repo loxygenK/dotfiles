@@ -17,7 +17,7 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 " ----- Colorscheme -----
 " set termguicolors
 "
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
 
