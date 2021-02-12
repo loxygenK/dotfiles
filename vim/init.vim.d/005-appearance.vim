@@ -9,25 +9,25 @@ set showmode " 現在のモードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 "set ruler " ステータスラインの右側にカーソルの現在位置を表示する
 
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight SpecialKey ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
+" highlight NonText ctermbg=NONE guibg=NONE
+" highlight SpecialKey ctermbg=NONE guibg=NONE
+" highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " ----- Colorscheme -----
-set termguicolors
+" set termguicolors
+"
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
 
-set background=dark
-let g:gruvbox_contrast_dark="medium"
-let g:gruvbox_contrast_light="medium"
+let g:solarized_termtrans=1
+" autocmd vimenter * colorscheme molokai
 
 " #222324 --> Konsoleの背景色に近い
-autocmd ColorScheme * highlight Normal guibg=#333333
-autocmd ColorScheme * highlight LineNr guibg=#333333
-autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#00aa00
-
-colorscheme gruvbox
-" autocmd vimenter * colorscheme molokai
+" autocmd ColorScheme * highlight Normal guibg=#333333
+" autocmd ColorScheme * highlight LineNr guibg=#333333
+" autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#00aa00
 
 "
 " Overriding theme settings
