@@ -25,16 +25,17 @@ function zle-line-init zle-keymap-select {
   # Gitを見る。
   vcs_info
 
-  # 表示用の文字列を用意する。
-  local SEPARATOR="%F{229}†%f"
+  source $ZSHRCD_LOCATION/variables/prompt_color.sh
 
-  local PWD="%F{182}%B%2~%b%f"
-  local CHARACTER="%F{223}ᓀ%B%(?:ˬ:_))フ%f%b"
-  local EXIT_CODE="%(?:: $SEPARATOR %F{242}e/%B%F{red}%?%f%b)"
+  # 表示用の文字列を用意する。
+  local SEPARATOR="%F{$SEPARATOR_COLOR}†%f"
+
+  local PWD="%F{$PWD_COLOR}%B%2~%b%f"
+  local EXIT_CODE="%(?:: $SEPARATOR %F{$SUBTEXT_COLOR}e/%B%F{$FAILED_COLOR}%?%f%b)"
   local HOSTNAME=""
   local SYMBOL_CHARACTER="-"
-  local VIM_MODE=" $SEPARATOR %F{242}v/%F{240}$KEYMAP%f"
-  
+  local VIM_MODE=" $SEPARATOR %F{$SUBTEXT_COLOR}v/%f$KEYMAP"
+
   # 外部接続だった場合のプロンプト。
   if [ -n "$SSH_CONNECTION" ]; then
     local __HOSTNAME="`echo $SSH_CONNECTION | awk '{ print $1 }' `"
@@ -44,30 +45,30 @@ function zle-line-init zle-keymap-select {
   # モードに応じてプロンプトを変更する。
   case $KEYMAP in
     vicmd)
-      VIM_MODE=" $SEPARATOR %F{242}v/%F{097}%Bnom%b%f"
+      VIM_MODE=" $SEPARATOR %F{$SUBTEXT_COLOR}v/%F{$VIM_NORMAL}%Bnom%b%f"
       SYMBOL_CHARACTER="-"
     ;;
     main|viins)
-      VIM_MODE=" $SEPARATOR %F{242}v/%F{043}%Bins%b%f"
+      VIM_MODE=" $SEPARATOR %F{$SUBTEXT_COLOR}v/%F{$VIM_INSERT}%Bins%b%f"
       SYMBOL_CHARACTER="▶"
     ;;
     vivis)
-      VIM_MODE=" $SEPARATOR %F{242}v/%F{213}%Bvis%b%f"
+      VIM_MODE=" $SEPARATOR %F{$SUBTEXT_COLOR}v/%F{$VIM_VISUAL}%Bvis%b%f"
       SYMBOL_CHARACTER="■"
     ;;
     vivli)
-      VIM_MODE=" $SEPARATOR %F{242}v/%F{213}%Bvis(line)%b%f"
+      VIM_MODE=" $SEPARATOR %F{$SUBTEXT_COLOR}v/%F{$VIM_VLINE}%Bvis(line)%b%f"
       SYMBOL_CHARACTER="■"
     ;;
   esac
   
   # 前回のコマンドの結果に基づいて色を変える。
-  local SYMBOL="%B%(?:%F{150}:%F{red})$SYMBOL_CHARACTER%b%{$reset_color%}"
+  local SYMBOL="%B%(?:%F{$SYMBOL_NORM}:%F{$SYMBOL_FAILED})$SYMBOL_CHARACTER%b%{$reset_color%}"
 
   # プロンプトを用意する。
   PROMPT="
- %F{242}┌%f$PWD${vcs_info_msg_0_}$EXIT_CODE$VIM_MODE$HOSTNAME
- %F{242}└─%f$SYMBOL "
+ %F{$SUBTEXT_COLOR}┌%f$PWD${vcs_info_msg_0_}$EXIT_CODE$VIM_MODE$HOSTNAME
+ %F{$SUBTEXT_COLOR}└─%f$SYMBOL "
 
    # 更新。
   zle reset-prompt
