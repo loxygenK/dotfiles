@@ -1,0 +1,82 @@
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2019 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+--[[ Software Behaivor Configuration ]]
+    background = true,
+    cpu_avg_samples = 2,
+    net_avg_samples = 2,
+    double_buffer = true,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_argb_value = 255,
+    use_xft = true,
+
+--[[ Widget Behaivor Configuration ]]
+    update_interval = 1,
+    use_spacer = 'none',
+
+--[[ Position ]]
+    alignment = 'top_middle',
+    gap_y = 536,
+    gap_x = 2,
+    minimum_height = 5,
+    minimum_width = 5,
+
+--[[ Appearance ]]
+    border_width = 1,
+    default_color = '#a5b3bd',
+    default_outline_color = '#a5b3bd',
+    default_shade_color = '#a5b3bd',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'JetBrainsMonoMedium Nerd Font Mono:size=11',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    uppercase = false,
+}
+
+conky.text = [[
+${alignc}${font FontAwesome}${font} $freq_g GHz ${font FontAwesome}${font} $mem ${font FontAwesome}${font} $processes ${font FontAwesome}${font} $running_processes
+
+${font FontAwesome}${font} v4 ${texeci 30 ip addr show enp5s0 | grep --regexp "inet[^6]" | awk '{sub("/.*", ""); print $2}'}
+${font FontAwesome}${font} v6 ${texeci 30 ip addr show enp5s0 | grep --regexp "inet6" | awk '{sub("/.*", ""); print $2}'}
+
+$sysname $nodename $kernel $machine
+CPU ${cpubar 6}
+MEM ${membar 6}
+]]
