@@ -1,23 +1,31 @@
-# loxygenK/dotfiles
-僕が使ってるdotfilesです。そのうち管理めんどくさくなってPushするのをやめそう。
+![Dotfiles - loxygenK/dotfiles](assets/header.png)
 
-## 構成
+<h1 align="center">Dotfiles</h1>
 
-- `vim`<br>
-  nvimの設定ファイルです。`~/.config/nvim`はこのディレクトリへのリンクになっています。
-  - `init.vim`<br>
-    `init.vim`です。
-  - `plugins/`<br>
-    Deinで管理するプラグインのファイルです。
-    - `lang/`<br>
-      言語ごとのプラグインのファイルが入っています。
-    - `misc.toml`<br>
-      言語に関連しない便利プラグインのファイルが入っています。
-    - `system.toml`<br>
-      Vimの根幹に関わるプラグインのファイルが入っています。
-- `zshrc`<br>
-  `.zshrc`本体です。このスクリプトでは`zshrc.d`の中のファイルを`source`しています。
-- `zshrc.d/`<br>
-  実際にzshを設定するスクリプトが入ったディレクトリです。
-- `unused/`<br>
-  使われていないけど残しておきたいファイルが入ったディレクトリです。
+Dotfiles です。ぼくの使用している端末にはこれが入っています。
+
+## :world_map: Components
+
+- :shell: **zsh** ― `shell/`
+
+- 🪟 **i3wm** ― `wm/i3`<br />
+  タイル型ウィンドウマネージャです。
+  - :computer: **conky** ― `wm/conkyrc`<br />
+    デスクトップ上にマシンの様々な状態を表示するソフトウェアです。
+
+  - :speech_balloon: :**i3blocks** ― `wm/i3blocks/`<br />
+    i3wm の下部に表示されるステータスバーです。
+
+  - :mailbox_with_mail: **dunst** ― `wm/dunst/`<br />
+    Pango でカスタマイズできる通知サーバーです。
+
+  - :sparkles: **picom** ― `wm/picom.conf`<br />
+    コンポジットマネージャです。<br />
+    ウィンドウの影や透明度設定などをサポートします。
+
+- :man_technologist: **Neovim** ― `vim/`<br />
+  - :smiling_imp: **dein.vim** ― `vim/plugins/`,
+
+## :building_construction: Structure of the repository
+
+/* TODO */
