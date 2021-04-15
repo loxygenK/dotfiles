@@ -4,6 +4,7 @@ filetype off
 
 " 大きいリポジトリのダウンロードでエラーが起こらないようにする
 let g:dein#install_process_timeout = 600
+let g:dein#auto_recache = 1
 
 if &compatible
   set nocompatible               " Be iMproved
@@ -18,7 +19,7 @@ if dein#load_state(g:vim_dir)
   call dein#begin(g:vim_dir)
 
   call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
-  call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 1})
+  call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 0})
 
   let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
 
