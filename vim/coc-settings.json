@@ -7,5 +7,9 @@
   },
   "yaml.schemas": {
     "https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json": "**/docker-compose*.yml"
-  }
+  },
+  "diagnostic.infoSign": "👀",
+  "diagnostic.warningSign": "🤔",
+  "diagnostic.errorSign": "🤯",
+  "diagnostic.hintSign": "🤗"
 }
