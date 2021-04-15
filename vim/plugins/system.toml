@@ -54,3 +54,5 @@ hook_source = """
 [[plugins]]
 repo = "neoclide/coc.nvim"
 
+[[plugins]]
+repo = "rakr/vim-one"
