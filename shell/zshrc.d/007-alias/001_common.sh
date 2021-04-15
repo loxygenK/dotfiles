@@ -23,8 +23,6 @@ alias cat="bat --theme='Solarized (light)' --style='numbers,grid'"
 alias vim="nvim"
 alias nv="nvim"
 
-alias ls='ls --color=auto'
-
 alias al "sl -a"
 
 alias du="du -h"
