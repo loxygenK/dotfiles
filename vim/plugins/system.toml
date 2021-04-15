@@ -55,4 +55,12 @@ hook_source = """
 repo = "neoclide/coc.nvim"
 
 [[plugins]]
+repo = "yasukotelin/shirotelin"
+
+[[plugins]]
 repo = "rakr/vim-one"
+
+[[plugins]]
+repo = "nvim-treesitter/nvim-treesitter"
+hook_post_update = "TSUpdate"
+

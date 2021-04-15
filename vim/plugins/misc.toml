@@ -105,11 +105,16 @@ repo = "cohama/lexima.vim"
 repo = "airblade/vim-gitgutter"
 
 # Extremely fancy file searcher
-[[plugins]]
-repo = "junegunn/fzf"
-build = "./install --all"
-merged = 0
+# [[plugins]]
+# repo = "junegunn/fzf"
+# build = "./install --all"
+# merged = 0
+#
+# [[plugins]]
+# repo = "junegunn/fzf.vim"
 
 [[plugins]]
-repo = "junegunn/fzf.vim"
+repo = "pandysong/ghost-text.vim"
 
+[[plugins]]
+repo = "Xe/lolcode.vim"
