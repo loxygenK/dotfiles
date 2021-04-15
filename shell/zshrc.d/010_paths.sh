@@ -71,6 +71,8 @@ source /usr/share/nvm/init-nvm.sh
 
 [[ -s "/home/flisan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/flisan/.sdkman/bin/sdkman-init.sh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Deferred
 
 if which yarn > /dev/null 2>&1; then
