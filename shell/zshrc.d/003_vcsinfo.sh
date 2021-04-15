@@ -1,4 +1,4 @@
-source $ZSHRCD_LOCATION/variables/prompt_color.sh
+source $ZSHRCD_LOCATION/_variables/prompt_color.sh
 
 local MAJOR_SEPARATOR="%F{$SEPARATOR_COLOR}†%f"
 local SEPARATOR="%F{$SEPARATOR_COLOR}･%f"

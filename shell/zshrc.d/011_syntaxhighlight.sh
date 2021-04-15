@@ -1,4 +1,4 @@
-source $ZSHRCD_LOCATION/variables/prompt_color.sh
+source $ZSHRCD_LOCATION/_variables/prompt_color.sh
 
 # †MORE RICH†なハイライト
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)

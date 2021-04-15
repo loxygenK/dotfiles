@@ -1,3 +1,30 @@
+filter_distribution() {
+  case $(echo $1 | sed -r 's/.*\[(.*)\].*/\1/') in
+    linux) uname -a | grep "GNU/Linux" >> /dev/null ;;
+    bsd)   uname -a | grep "BSD" >> /dev/null ;;
+    *)     true; ;;
+  esac
+}
+
+load_zshrc() {
+  if [ $2 -ne 0 ]; then echo " \e[38;5;243m$(repeat $(($2 - 1)) echo -n "  │ ")  ├─ \e[38;5;4;1m$(basename $1)/\e[m"; fi
+
+  for file in `find $1 -maxdepth 1 -type f,d | sort`; do
+    if [ $file = $1 ]; then continue; fi
+    if [[ $(basename $file) =~ ^__* ]]; then continue; fi
+    if ! filter_distribution $file; then
+      print "   \e[38;5;243m$(repeat $2 echo -n "│   ")├─ \e[38;5;245m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
+      continue;
+    fi
+    if [ -d $file ]; then load_zshrc $file $(($2 + 1)); continue; fi
+
+    print "   \e[38;5;243m$(repeat $2 echo -n "│   ")├─ \e[38;5;6m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
+    source $file
+  done
+
+  print "   \e[38;5;243m$(repeat $2 echo -n "│   ")└─ \e[38;5;2;1mDone!\e[m"
+}
+
 case "$TERM" in
   linux)
     [ -n "$FBTERM" ] && export TERM=fbterm
@@ -21,13 +48,10 @@ local START_TIME=$(($(date +%s.%N)))
 
 # 分割ファイルを読み込む
 PREV_TIME=0
-for file in `find $ZSHRCD_LOCATION -maxdepth 1 -type f | sort`; do
-  print "   \e[38;5;243m├─ \e[38;5;6m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
-  source $file
-done
+load_zshrc $ZSHRCD_LOCATION 0
 
 local ELAPSED_TIME=$(($(date +%s.%N) - $START_TIME))
-print "   \e[38;5;243m└─ \e[38;5;2;1mDone! \e[;38;5;2m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)"
+print "   \e[;38;5;2m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)\e[m"
 
 # echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
 echo ""
