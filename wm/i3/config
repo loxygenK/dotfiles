@@ -7,14 +7,14 @@
 ############## Design Configuration ################
 
 ##### Define Colors #####
-set $background #cacceb
+set $background #caebff
 set $workspace_container #a9aac2
 set $focus_back #cacceb
-set $border #5d5e6e
+set $border #8fc7f0
 set $foreground #3a3a40
 set $focus_fore #1c1c1f
-set $flip_fore #cacceb
-set $focus #47496b
+set $flip_fore #434d52
+set $focus #aed5e6
 set $emergency #d1828e
 
 ##### Title bar configuration #####
@@ -24,9 +24,9 @@ title_align center
 ##### Window Colors/Layouts #####
 for_window [class="^.*"] border pixel 2
 
-client.focused $focus $focus $flip_fore
-client.focused_inactive $focus $focus $foreground $foreground
-client.unfocused $focus $focus $foreground $foreground
+client.focused $border $border $foreground
+client.focused_inactive $border $border $foreground
+client.unfocused $background $background $foreground $foreground
 client.urgent $emergency $emergency $flip_fore $flip_fore
 gaps inner 20
 # smart_gaps on
@@ -44,6 +44,7 @@ exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper.png"
 exec --no-startup-id "picom -cb"
 exec --no-startup-id "conky -m 0"
 exec --no-startup-id "conky -m 1"
+exec --no-startup-id "kdeconnect-indicator"
 
 ############## Keybind Configuration ##################
 
@@ -201,7 +202,7 @@ bindsym $mod+r mode "resize"
 # see "wm/i3blocks".
 
 bar {
-        height 25
+        height 40
         status_command i3blocks
         font pango:Fira Code Retina 9.5
         mode dock

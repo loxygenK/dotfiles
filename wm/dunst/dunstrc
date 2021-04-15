@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = mouse
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "450x5-10-40"
+    geometry = "800x5-30-40"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -54,10 +54,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 12
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 16
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -126,7 +126,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<span font='11.5' font_weight='bold'>%b</span>\n<span font='9'>%s <span foreground='#444'>🚚 %a</span></span>"
+    format = "<span font='14' font_weight='bold'>%b</span>\n<span font='12'>%s <span foreground='#444'>🚚 %a</span></span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -295,7 +295,7 @@
     background = "#aeb0d1"
     foreground = "#333333"
     frame_color = "#aeb0d1"
-    timeout = 10
+    timeout = 15
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -303,7 +303,7 @@
     background = "#cacceb"
     foreground = "#222222"
     frame_color = "#cacceb"
-    timeout = 10
+    timeout = 30
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
