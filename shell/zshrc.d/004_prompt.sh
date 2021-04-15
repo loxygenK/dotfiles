@@ -19,13 +19,15 @@
 # %t    時間(hh:mm(am/pm))
 # PROMPT='%F{cyan}%n▶@%m%f:%~$ '
 
-# 
+# Notice: Stderr outputs from any commands in this function are turned into *blank* text.
+#         If the prompt shifts down when the vi-mode is changed,
+#         consider investigating the error in this function.
 function zle-line-init zle-keymap-select {
 
   # Gitを見る。
   vcs_info
 
-  source $ZSHRCD_LOCATION/variables/prompt_color.sh
+  source $ZSHRCD_LOCATION/_variables/prompt_color.sh
 
   # 表示用の文字列を用意する。
   local SEPARATOR="%F{$SEPARATOR_COLOR}†%f"
@@ -61,7 +63,7 @@ function zle-line-init zle-keymap-select {
       SYMBOL_CHARACTER="■"
     ;;
   esac
-  
+
   # 前回のコマンドの結果に基づいて色を変える。
   local SYMBOL="%B%(?:%F{$SYMBOL_NORM}:%F{$SYMBOL_FAILED})$SYMBOL_CHARACTER%b%{$reset_color%}"
 
