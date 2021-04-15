@@ -47,8 +47,8 @@ conky.config = {
     use_spacer = 'none',
 
 --[[ Position ]]
-    alignment = 'top_middle',
-    gap_y = 536,
+    alignment = 'bottom_middle',
+    gap_y = 600,
     gap_x = 2,
     minimum_height = 5,
     minimum_width = 5,

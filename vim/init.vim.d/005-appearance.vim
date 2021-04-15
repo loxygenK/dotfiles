@@ -14,19 +14,20 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 " highlight SpecialKey ctermbg=NONE guibg=NONE
 " highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
+
 " ----- Colorscheme -----
 " set termguicolors
 "
 " let g:solarized_termcolors=256
 set background=light
-colorscheme solarized
+colorscheme one
 
-let g:solarized_termtrans=1
+" let g:solarized_termtrans=1
 " autocmd vimenter * colorscheme molokai
 
 " #222324 --> Konsoleの背景色に近い
-" autocmd ColorScheme * highlight Normal guibg=#333333
-" autocmd ColorScheme * highlight LineNr guibg=#333333
 " autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#00aa00
 
 "
@@ -34,7 +35,7 @@ let g:solarized_termtrans=1
 " 行末の空白を表示する
 set list
 
-set listchars=tab:>-,trail:*,eol:.,extends:→,precedes:←,nbsp:%
+set listchars=tab:>-,trail:*,eol:↓,extends:→,precedes:←,nbsp:%
 highlight ExtraWhitespace ctermbg=73 guibg=#557070
 highlight Whitespace guifg=#4d5c5c
 match WhiteSpace /\s\+/
