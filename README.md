@@ -52,9 +52,13 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
   - :framed_picture: `wm/`<br />ウィンドウマネージャなどの設定を行うファイルが入っている場所です。
 
     - :computer: `conkyrc`
-- :mailbox_with_mail: `dunst/`
+
+    - :mailbox_with_mail: `dunst/`
+
     - :framed_picture: `i3/`
-- :speech_balloon: `i3blocks`
+    j
+    - :speech_balloon: `i3blocks`
+
     - :sparkles: `picom.conf`
 
 # :eyes: Appearance

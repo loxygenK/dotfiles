@@ -10,20 +10,20 @@ Dotfiles. Files in this repository are used in computers I usually use.
 
 - :framed_picture: **i3wm** (i3-gaps) ― `wm/i3`<br />
   A tile window manager.
-  
+
   - :computer: **conky** ― `wm/conkyrc`<br />
   Shows information about the machine on the desktop screen.
-  
+
   - :speech_balloon: :**i3blocks** ― `wm/i3blocks/`<br />A status bar shown at the bottom of the screens.
-  
+
   - :mailbox_with_mail: **dunst** ― `wm/dunst/`<br />
-    
+
 An notification server customizable with Pango.
-    
+
   - :sparkles: **picom** ― `wm/picom.conf`<br />A composite manager. Supports shades behind the window, opacity, and so on.
-  
+
 - :man_technologist: **Neovim** ― `vim/`<br />
-  
+
   - :smiling_imp: **dein.vim** ― `vim/plugins/`,
 
 ## :building_construction: Structure of the repository
@@ -40,16 +40,26 @@ An notification server customizable with Pango.
   - :memo: `vim/`<br />Dotfiles used by Neovim.
 
     - :mage: `coc-settings.json`<br />Configuration for coc.nvim.
-- :triangular_flag_on_post: `init.vim`<br />Configuration script file for Neovim. Scripts in  `./init.vim.d` do actual configuration.
+
+    - :triangular_flag_on_post: `init.vim`<br />Configuration script file for Neovim. Scripts in  `./init.vim.d` do actual configuration.
+
     - :books: `init.vim.d/`<br />Scripts that do specific settings for Neovim.
-- :package: `plugins/`<br />Lists of the plugins I use in Neovim.
+
+    - :package: `plugins/`<br />Lists of the plugins I use in Neovim.
+
     - :jigsaw: `snippets/`<br />Snippets.
-- :framed_picture: `wm/`<br />Files that do configuration for window manager.
+
+  - :framed_picture: `wm/`<br />Files that do configuration for window manager.
+
     - :computer: `conkyrc`
-  - :mailbox_with_mail: `dunst/`
-        - :framed_picture: `i3/`
-  - :speech_balloon: `i3blocks`
-        - :sparkles: `picom.conf`
+
+    - :mailbox_with_mail: `dunst/`
+
+    - :framed_picture: `i3/`
+
+    - :speech_balloon: `i3blocks`
+
+    - :sparkles: `picom.conf`
 
 # :eyes: Appearance
 
