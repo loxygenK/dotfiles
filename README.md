@@ -8,7 +8,7 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
 
 - :shell: **zsh** ― `shell/`
 
-- :window: **i3wm** (i3-gaps) ― `wm/i3`<br />
+- :framed_picture: **i3wm** (i3-gaps) ― `wm/i3`<br />
   タイル型ウィンドウマネージャです。
   - :computer: **conky** ― `wm/conkyrc`<br />
     デスクトップ上にマシンの様々な状態を表示するソフトウェアです。
@@ -19,7 +19,7 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
   - :mailbox_with_mail: **dunst** ― `wm/dunst/`<br />
     Pango でカスタマイズできる通知サーバーです。
 
-  - :framed_picture: **picom** ― `wm/picom.conf`<br />
+  - :sparkles: **picom** ― `wm/picom.conf`<br />
     コンポジットマネージャです。<br />
     ウィンドウの影や透明度設定などをサポートします。
 
@@ -39,9 +39,9 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
     - :books: `init.vim.d/`<br />Neovim の具体的な設定を行うファイルが入っている場所です。
     - :package: `plugins/`<br />使用しているプラグインのリストが入っている場所です。
     - :jigsaw: `snippets/`<br />スニペットです。
-  - :window: `wm/`<br />ウィンドウマネージャなどの設定を行うファイルが入っている場所です。
+  - :framed_picture: `wm/`<br />ウィンドウマネージャなどの設定を行うファイルが入っている場所です。
     - :computer: `conkyrc`
     - :mailbox_with_mail: `dunst/`
-    - :window: `i3/`
+    - :framed_picture: `i3/`
     - :speech_balloon: `i3blocks`
-    - :framed_picture: `picom.conf`
+    - :sparkles: `picom.conf`
