@@ -30,18 +30,33 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
 
 - :world_map: `/path/to/loxygenK/dotfiles`
   - :bento: `assets/`<br />README に使用している画像が入っている場所です。
+
   - :shell: `shell/`<br />Zsh で使用している Dotfiles が入っている場所です。
+
     - :triangular_flag_on_post: `zshrc`<br />`.zshrc` です。実際の設定処理は `./zshrc.d` 内のスクリプトが行います。
+
     - :books: `zshrc.d/`<br />具体的な設定を行うシェルスクリプトが入っているディレクトリです。
+
   - :memo: `vim/`<br />Neovim で使用している Dotfiles が入っている場所です。
+
     - :mage: `coc-settings.json`<br />coc.nvim の設定ファイルです。
+
     - :triangular_flag_on_post: `init.vim`<br />Neovim の設定ファイルです。実際の設定処理は  `./init.vim.d` 内のスクリプトが行います。
+
     - :books: `init.vim.d/`<br />Neovim の具体的な設定を行うファイルが入っている場所です。
+
     - :package: `plugins/`<br />使用しているプラグインのリストが入っている場所です。
+
     - :jigsaw: `snippets/`<br />スニペットです。
+
   - :framed_picture: `wm/`<br />ウィンドウマネージャなどの設定を行うファイルが入っている場所です。
+
     - :computer: `conkyrc`
+
     - :mailbox_with_mail: `dunst/`
+
     - :framed_picture: `i3/`
+
     - :speech_balloon: `i3blocks`
+
     - :sparkles: `picom.conf`
