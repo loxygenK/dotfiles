@@ -1,7 +1,7 @@
 filter_distribution() {
   case $(echo $1 | sed -r 's/.*\[(.*)\].*/\1/') in
     linux) uname -a | grep "GNU/Linux" >> /dev/null ;;
-    bsd)   uname -a | grep "BSD" >> /dev/null ;;
+    dwn)   uname -a | grep "Darwin" >> /dev/null ;;
     *)     true; ;;
   esac
 }
