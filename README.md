@@ -56,7 +56,7 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
     - :mailbox_with_mail: `dunst/`
 
     - :framed_picture: `i3/`
-    j
+    
     - :speech_balloon: `i3blocks`
 
     - :sparkles: `picom.conf`
