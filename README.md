@@ -52,11 +52,34 @@ Dotfiles です。ぼくの使用している端末にはこれが入ってい�
   - :framed_picture: `wm/`<br />ウィンドウマネージャなどの設定を行うファイルが入っている場所です。
 
     - :computer: `conkyrc`
-
-    - :mailbox_with_mail: `dunst/`
-
+- :mailbox_with_mail: `dunst/`
     - :framed_picture: `i3/`
-
-    - :speech_balloon: `i3blocks`
-
+- :speech_balloon: `i3blocks`
     - :sparkles: `picom.conf`
+
+# :eyes: Appearance
+
+![Appearance](assets/screenshot.png)
+
+# :page_with_curl: Licenses
+
+MIT ライセンスです。詳細は [LICENSE](https://github.com/loxygenK/dotfiles/blob/master/LICENSE) をご参照ください。
+
+## :bow: Acknowledgements
+
+### :abc: ヘッダー・スクリーンショット中のフォント
+
+ヘッダーやスクリーンショット中のフォントは MIT ライセンスのもとで配布されているフォントを使用しています。
+
+Copyright (c) 2014 Ryan L McIntyre
+Released under the MIT license
+https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE
+
+### :sparkles: Conky 中のアイコン
+
+Conky で使用しているアイコンは MIT ライセンスのもとで配布されているフォントを使用しています。
+
+Copyright (c) 2013 Gabriele Lana
+Released under the MIT license
+https://github.com/gabrielelana/awesome-terminal-fonts/blob/master/LICENSE
+
