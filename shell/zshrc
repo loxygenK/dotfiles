@@ -1,7 +1,7 @@
 filter_distribution() {
   case $(echo $1 | sed -r 's/.*\[(.*)\].*/\1/') in
     linux) uname -a | grep "GNU/Linux" >> /dev/null ;;
-    bsd)   uname -a | grep "BSD" >> /dev/null ;;
+    dwn)   uname -a | grep "Darwin" >> /dev/null ;;
     *)     true; ;;
   esac
 }
@@ -9,7 +9,7 @@ filter_distribution() {
 load_zshrc() {
   if [ $2 -ne 0 ]; then echo " \e[38;5;243m$(repeat $(($2 - 1)) echo -n "  │ ")  ├─ \e[38;5;4;1m$(basename $1)/\e[m"; fi
 
-  for file in `find $1 -maxdepth 1 -type f,d | sort`; do
+  for file in `find $1 -maxdepth 1 | sort`; do
     if [ $file = $1 ]; then continue; fi
     if [[ $(basename $file) =~ ^__* ]]; then continue; fi
     if ! filter_distribution $file; then
@@ -44,13 +44,13 @@ echo "\e[38;5;2;1m --- † Zsh Environment Constructing † ---\e[m"
 echo ""
 echo " \e[38;5;4mLoading \e[38;5;4;1m$ZSHRCD_LOCATION\e[m"
 
-local START_TIME=$(($(date +%s.%N)))
+local START_TIME=$(($(date +%s)))
 
 # 分割ファイルを読み込む
 PREV_TIME=0
 load_zshrc $ZSHRCD_LOCATION 0
 
-local ELAPSED_TIME=$(($(date +%s.%N) - $START_TIME))
+local ELAPSED_TIME=$(($(date +%s) - $START_TIME))
 print "   \e[;38;5;2m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)\e[m"
 
 # echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
