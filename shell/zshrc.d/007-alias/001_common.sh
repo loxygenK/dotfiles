@@ -45,6 +45,9 @@ alias export-pdf="wkhtmltopdf --print-media-type --header-right '[date]' --heade
 
 alias gmc="gitmoji -c"
 
+alias windows="startwinvm"
+alias win=windows
+
 # --- Abbr. ---
 alias abbr="abbr --session --quiet --force"
 
