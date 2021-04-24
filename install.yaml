@@ -1,0 +1,202 @@
+# Install Configuration File
+# Used by loxygenK/dotfiles-installer.
+
+information:
+  name: loxygenK/dotfiles
+  author: flisan
+
+install:
+  - category: System requirements
+    ingredients:
+      - accountsservice
+      - amd-ucode
+      - dhcpcd
+      - efibootmgr
+      - grub
+      - networkmanager
+      - nvidia
+      - nvidia-utils
+      - os-prober
+      - sudo
+      - vim
+      - neovim
+      - zsh
+
+  - category: CLI Tools
+    ingredients:
+      - dfu-programmer
+      - dfu-util
+      - dive
+      - docker
+      - docker-compose
+      - exa
+      - fzf
+      - git
+      - github-cli
+      - heroku-cli
+      - htop
+      - jq
+      - neofetch
+      - sl
+      - tig
+      - tmux
+      - tree
+      - ufw
+      - unarchiver
+      - unzip
+      - wget
+      - which
+      - whois
+      - yay
+
+  - category: System Utilities
+    ingridients:
+      - cifs-utils
+      - clamav
+      - clamtk
+      - cmake
+      - dotnet-runtime
+      - dotnet-sdk
+      - gcc
+      - gvfs
+      - gvfs-smb
+      - jmtpfs
+      - lib32-libpulse
+      - libgnome-keyring
+      - libmtp
+      - libu2f-host
+      - make
+      - man-db
+      - mtpfs
+      - ntfs-3g
+      - ntp
+      - opensc
+      - pam-u2f
+      - python-pip
+      - python-pygame
+      - sshfs
+       zenity
+
+  - category: GUI Utilities
+    ingridients:
+      - alsa-utils
+      - arandr
+      - fcitx
+      - fcitx-configtool
+      - fcitx-mozc
+      - fcitx-qt5
+      - kdeconnect
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - pavucontrol
+      - pcf-unifont
+      - pulseaudio
+      - pulseaudio-alsa
+      - tumbler
+      - ttf-fira-code
+      - ttf-font-awesome
+      - xorg-xeyes
+      - xorg-xlsfonts
+      - xorg-xrandr
+      - xorg-xwininfo
+      - xsel
+
+  - category: GUI Applications
+      - chromium
+      - compton-conf
+      - convmv
+      - exo
+      - flameshot
+      - gcolor2
+      - gimp
+      - jetbrains-toolbox
+      - keybase-bin
+      - kleopatra
+      - libreoffice-still
+      - mousepad
+      - notepadqq
+      - screenkey
+      - simplescreenrecorder
+      - slack-desktop
+      - tcpdump
+      - thunar
+      - thunar-archive-plugin
+      - thunar-media-tags-plugin
+      - thunar-volman
+      - thunderbird
+      - typora
+      - virtualbox
+      - virtualbox-ext-oracle
+      - virtualbox-host-modules-arch
+      - vivaldi
+      - whalebird
+      - yubikey-manager
+      - zoom
+
+  - category: Window Manager
+      - conky
+      - dmenu
+      - dunst
+      - feh
+      - gnome-keyring
+      - i3-gaps
+      - i3blocks
+      - i3lock
+      - i3status
+      - lightdm
+      - lightdm-gtk-greeter
+      - picom
+
+caveats:
+  - title: Wine
+    content:
+      ja: |-
+        Wine はバージョンを 5.10-1 に固定する必要があるため、
+        関連するパッケージを含めて自動的にインストールされませんでした。
+
+        自動インストールの完了後、以下のサイトを参考にして Wine 5.10-1 をインストールしてください。
+
+          https://wiki.archlinux.jp/index.php/Arch_Linux_Archive
+
+        Wine 5.10-1 のインストール完了後は、忘れずに pacman.conf 内で IgnorePkg を設定してください。
+
+      en: |-
+        Wine and packages relating to Wine were NOT installed
+        because the version of Wine should be fixed to 5.10-1.
+
+        After the automatic installation is finished, install Wine 5.10-1 referring the following site;
+
+          https://wiki.archlinux.jp/index.php/Arch_Linux_Archive
+
+        Remeber to configurate IgnorePkg in pacman.conf after the installation of Wine 5.10-1.
+
+commands:
+  - description: Prepare the directory 
+    execute:
+      - mkdir -p ~/.config
+      - mkdir -p ~/.cache/dein
+  - description: Configurate NVM
+    execute:
+      - git clone https://github.com/nvm-sh/nvm .nvm
+
+dotfiles:
+  - name: Zshrc
+    from: shell/zshrc
+    to: ~/.zshrc
+  - name: Neovim
+    from: vim
+    to: ~/.config/nvim
+  - name: Dunst
+    from: wm/dunst
+    to: ~/.config/dunst
+  - name: i3wm
+    from: wm/i3
+    to: ~/.config/i3
+  - name: i3blocks
+    from: wm/i3blocks
+    to: ~/.config/i3blocks
+  - name: picom
+    from: wm/picon.conf
+    to: ~/.config/picom.conf
+
