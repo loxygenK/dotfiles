@@ -118,3 +118,6 @@ repo = "pandysong/ghost-text.vim"
 
 [[plugins]]
 repo = "Xe/lolcode.vim"
+
+[[plugins]]
+repo = "Shougo/denite.nvim"

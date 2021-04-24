@@ -14,8 +14,8 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 " highlight SpecialKey ctermbg=NONE guibg=NONE
 " highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
 
 " ----- Colorscheme -----
 " set termguicolors
