@@ -1,3 +1,6 @@
+export DOTFILES_DIRECTORY="$HOME/.dotfiles"
+export ZSHRCD_LOCATION="$HOME/.dotfiles/shell/zshrc.d"
+
 filter_distribution() {
   case $(echo $1 | sed -r 's/.*\[(.*)\].*/\1/') in
     linux) uname -a | grep "GNU/Linux" >> /dev/null ;;
@@ -6,53 +9,55 @@ filter_distribution() {
   esac
 }
 
-load_zshrc() {
-  if [ $2 -ne 0 ]; then echo " \e[38;5;243m$(repeat $(($2 - 1)) echo -n "  │ ")  ├─ \e[38;5;4;1m$(basename $1)/\e[m"; fi
+_load_zshrc() {
+  # Create the ascii text of the branch of tree
+  local _tree_branch="   $(F/ 240)$(repeat $2 echo -n "│   ")"
+  local tree_leaf="$_tree_branch├─ $(R/)"
+  local tree_terminate="$_tree_branch└─ $(R/)"
 
+  # Check all files/directories in the desired directory
   for file in `find $1 -maxdepth 1 | sort`; do
+    local node_name="$(basename $file)"
+
+    # Skip reading file when the current file is the same as the desired directory,
+    # or the directory or the file's name is beginning from "_"
     if [ $file = $1 ]; then continue; fi
-    if [[ $(basename $file) =~ ^__* ]]; then continue; fi
-    if ! filter_distribution $file; then
-      print "   \e[38;5;243m$(repeat $2 echo -n "│   ")├─ \e[38;5;245m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
+    if [[ $node_name =~ ^__* ]]; then continue; fi
+
+    # Check if the target distribution is the same as the one on the running environment
+    if ! filter_distribution $node_name; then
+      echo "$tree_leaf$(F/ 245)$node_name$(R/)"
       continue;
     fi
-    if [ -d $file ]; then load_zshrc $file $(($2 + 1)); continue; fi
 
-    print "   \e[38;5;243m$(repeat $2 echo -n "│   ")├─ \e[38;5;6m$(echo $file | awk -F "/" '{ print $NF }')\e[m"
+    # Read the directory recursively
+    if [ -d $file ]; then
+      echo "$tree_leaf$(F/ 4)$node_name$(R/)"
+      _load_zshrc $file $(($2 + 1))
+      continue
+    fi
+
+    # When the execution reached here, it is the file to load, so source one
+    echo "$tree_leaf$(F/ 6)$node_name$(R/)"
     source $file
   done
 
-  print "   \e[38;5;243m$(repeat $2 echo -n "│   ")└─ \e[38;5;2;1mDone!\e[m"
+  # Everything is done for current directory
+  print "$tree_terminate$(colorforeed 2 "Done!")"
 }
 
-case "$TERM" in
-  linux)
-    [ -n "$FBTERM" ] && export TERM=fbterm
-    ;;
-  *)
-    ;;
-esac
+load_zshrc() {
+  # Prepare the coloring utility
+  source "$ZSHRCD_LOCATION/_utils/colorify.sh"
+  colorify_setalias
 
-# Dotfilesのディレクトリとblin-toolのディレクトリを環境変数に設定する
-export DOTFILES_DIRECTORY="$HOME/.dotfiles"
-export BLINTOOL_DIRECTORY="$HOME/.blin-tool"
-export ZSHRCD_LOCATION="$HOME/.dotfiles/shell/zshrc.d"
+  # Load zshrc.d
+  _load_zshrc $1 0
 
-# 事前設定を読み込む
-echo ""
-echo "\e[38;5;2;1m --- † Zsh Environment Constructing † ---\e[m"
-echo ""
+  # Clear aliases registered by colorify.sh
+  colorify_removealias
+}
+
+echo
 echo " \e[38;5;4mLoading \e[38;5;4;1m$ZSHRCD_LOCATION\e[m"
-
-local START_TIME=$(($(date +%s)))
-
-# 分割ファイルを読み込む
-PREV_TIME=0
-load_zshrc $ZSHRCD_LOCATION 0
-
-local ELAPSED_TIME=$(($(date +%s) - $START_TIME))
-print "   \e[;38;5;2m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)\e[m"
-
-# echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
-echo ""
-echo "\e[38;5;2;1m --- † `whoami`'s $ZSH_NAME READY † ---\e[m"
+load_zshrc $ZSHRCD_LOCATION
