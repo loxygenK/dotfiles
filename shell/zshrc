@@ -1,6 +1,4 @@
-# Dotfilesのディレクトリとblin-toolのディレクトリを環境変数に設定する
 export DOTFILES_DIRECTORY="$HOME/.dotfiles"
-export BLINTOOL_DIRECTORY="$HOME/.blin-tool"
 export ZSHRCD_LOCATION="$HOME/.dotfiles/shell/zshrc.d"
 
 filter_distribution() {
