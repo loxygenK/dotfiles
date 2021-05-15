@@ -35,7 +35,8 @@ _load_zshrc() {
     # Read the directory recursively
     if [ -d $file ]; then
       echo "$tree_leaf$(F/ 4)$node_name$(R/)"
-      _load_zshrc $file $(($2 + 1)); continue;
+      _load_zshrc $file $(($2 + 1))
+      continue
     fi
 
     # When the execution reached here, it is the file to load, so source one
@@ -67,21 +68,6 @@ case "$TERM" in
     ;;
 esac
 
-# 事前設定を読み込む
-echo ""
-echo "\e[38;5;2;1m --- † Zsh Environment Constructing † ---\e[m"
-echo ""
+echo
 echo " \e[38;5;4mLoading \e[38;5;4;1m$ZSHRCD_LOCATION\e[m"
-
-local START_TIME=$(($(date +%s)))
-
-# 分割ファイルを読み込む
-PREV_TIME=0
 load_zshrc $ZSHRCD_LOCATION
-
-local ELAPSED_TIME=$(($(date +%s) - $START_TIME))
-print "   \e[;38;5;2m($(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s)\e[m"
-
-# echo "\e[38;5;245m $(echo $ELAPSED_TIME | awk '{ print int($1*100) / 100 }')s took.\e[m"
-echo ""
-echo "\e[38;5;2;1m --- † `whoami`'s $ZSH_NAME READY † ---\e[m"
