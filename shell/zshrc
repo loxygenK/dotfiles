@@ -60,14 +60,6 @@ load_zshrc() {
   colorify_removealias
 }
 
-case "$TERM" in
-  linux)
-    [ -n "$FBTERM" ] && export TERM=fbterm
-    ;;
-  *)
-    ;;
-esac
-
 echo
 echo " \e[38;5;4mLoading \e[38;5;4;1m$ZSHRCD_LOCATION\e[m"
 load_zshrc $ZSHRCD_LOCATION
