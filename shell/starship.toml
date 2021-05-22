@@ -1,0 +1,64 @@
+format = """
+ [┌](fg:245)$directory\
+($git_branch$git_commit$git_state$git_status)\
+$jobs\
+$cmd_duration$memory_usage
+ \
+ [└──](fg:245)$character"""
+
+# Provide the characters based on the result of the previous command.
+[character]
+success_symbol = "[▶](green)"
+error_symbol = "[▶](red)"
+vicmd_symbol = "[■](fg:127)"
+
+# Provide the name of the current directory.
+[directory]
+truncation_length = 2
+format = "[$read_only]($read_only_style)[$path]($style)"
+style = "198 bold"
+
+# Provide the name of the branch.
+[git_branch]
+format = "[([ | ](fg:245)$branch)]($style)"
+style = "207 bold"
+
+# Provide the current hash commit.
+# Only when the HEAD is detached.
+[git_commit]
+format = "[\\($hash\\)]($style)"
+style = "213"
+
+# Provide the current status of the repository
+[git_state]
+format = " [$state(\\($progress_current/$progress_total\\))]($style)"
+style = "135"
+
+[git_status]
+conflicted = " X CF"
+ahead = " ↑ Push"
+behind = " ↓ Pull"
+diverged = " ↕ Desync"
+untracked = " ?"
+modified = " MD"
+staged = " [✓ READY](green)"
+renamed = " RN"
+deleted = " DL"
+format = "([$all_status$ahead_behind]($style))"
+style = "177"
+
+[jobs]
+symbol = " +"
+
+[cmd_duration]
+min_time = 99
+show_milliseconds = true
+format = " [$duration]($style)"
+style = "213"
+
+[memory_usage]
+disabled = false
+threshold = 50
+format=" [${ram}\\(${ram_pct}\\)]($style)"
+style = "69"
+
