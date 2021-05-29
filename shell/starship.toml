@@ -15,6 +15,7 @@ vicmd_symbol = "[■](fg:33)"
 # Provide the name of the current directory.
 [directory]
 truncation_length = 2
+truncate_to_repo = false
 format = "[$read_only]($read_only_style)[$path]($style)"
 style = "32 bold"
 
