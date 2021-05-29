@@ -1,38 +1,34 @@
-# †MORE RICH†なハイライト
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-# よくわからんトークンは灰色+Bold
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=244
+# --- Values
+ZSH_HIGHLIGHT_STYLES[default]=fg=none
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=124,underline
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=21
 
-# ifやforの予約語はいい感じに濁った橙色
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=166,bold
+# --- Commands
+ZSH_HIGHLIGHT_STYLES[command]=fg=33
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=33
+ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=33,bold
 
-# コマンドは太字に水色、エイリアスは+下線
-ZSH_HIGHLIGHT_STYLES[command]=fg=39,bold
-ZSH_HIGHLIGHT_STYLES[alias]=fg=39,bold,underline
+# --- Command-ish thingies
+ZSH_HIGHLIGHT_STYLES[alias]=fg=31
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=27
+ZSH_HIGHLIGHT_STYLES[function]=fg=29
+ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=69
+ZSH_HIGHLIGHT_STYLES[assign]=none
+ZSH_HIGHLIGHT_STYLES[redirect]=fg=22
 
-# ビルトインはなお水色
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=32,bold
+# --- Paths
+ZSH_HIGHLIGHT_STYLES[path]=fg=30
+ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=30
+ZSH_HIGHLIGHT_STYLES[path_approx]=fg=30
+ZSH_HIGHLIGHT_STYLES[globbing]=fg=36
 
-# 関数はコマンドよりも紫に近い色
-ZSH_HIGHLIGHT_STYLES[function]=fg=62,bold
-
-# パスは薄めの緑
-ZSH_HIGHLIGHT_STYLES[path]=fg=32
-
-# ファイル複数指定時の「*」とかは絶望的に見づらいので紫
-ZSH_HIGHLIGHT_STYLES[globbing]=fg=105
-
-# 他はちょっと灰色にする(お目目に優しくなったらいいな)
-ZSH_HIGHLIGHT_STYLES[default]=fg=240
-
-# オプションは黄色
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=70
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=70
-
-# 文字列はオレンジ
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=136
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=136
-
-# コマンド展開するあのようわからんやつ(`)は濁った橙色
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=100
+# --- Values
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=24
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=24
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=fg=31
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=36
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=36
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=31
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=31
