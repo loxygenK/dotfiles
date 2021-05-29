@@ -1,5 +1,5 @@
 format = """
- [┌](fg:245)$directory\
+ [┌─](fg:245)$directory\
 ($git_branch$git_commit$git_state$git_status)\
 $jobs\
 $cmd_duration$memory_usage
@@ -8,44 +8,46 @@ $cmd_duration$memory_usage
 
 # Provide the characters based on the result of the previous command.
 [character]
-success_symbol = "[▶](green)"
-error_symbol = "[▶](red)"
-vicmd_symbol = "[■](fg:127)"
+success_symbol = "[▶](27)"
+error_symbol = "[▶](90)"
+vicmd_symbol = "[■](fg:33)"
 
 # Provide the name of the current directory.
 [directory]
 truncation_length = 2
+truncate_to_repo = false
 format = "[$read_only]($read_only_style)[$path]($style)"
-style = "198 bold"
+style = "32 bold"
 
 # Provide the name of the branch.
 [git_branch]
 format = "[([ | ](fg:245)$branch)]($style)"
-style = "207 bold"
+style = "25 bold"
 
 # Provide the current hash commit.
 # Only when the HEAD is detached.
 [git_commit]
 format = "[\\($hash\\)]($style)"
-style = "213"
+style = "25"
 
 # Provide the current status of the repository
 [git_state]
 format = " [$state(\\($progress_current/$progress_total\\))]($style)"
-style = "135"
+style = "66"
 
 [git_status]
 conflicted = " X CF"
-ahead = " ↑ Push"
-behind = " ↓ Pull"
-diverged = " ↕ Desync"
+ahead = " ↑"
+behind = " ↓"
+diverged = " ↕"
 untracked = " ?"
+staged = " [✓\\($count\\)](bold 69)"
 modified = " MD"
-staged = " [✓ READY\\($count\\)](green)"
 renamed = " RN"
 deleted = " DL"
+stashed = " ST"
 format = "([$all_status$ahead_behind]($style))"
-style = "177"
+style = "69"
 
 [jobs]
 symbol = " +"
@@ -54,11 +56,11 @@ symbol = " +"
 min_time = 99
 show_milliseconds = true
 format = " [$duration]($style)"
-style = "213"
+style = "111"
 
 [memory_usage]
 disabled = false
 threshold = 50
 format=" [${ram}\\(${ram_pct}\\)]($style)"
-style = "69"
+style = "64"
 
