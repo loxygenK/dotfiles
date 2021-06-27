@@ -1,0 +1,68 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+#
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  size: 7.5
+
+# colors:
+#   primary:
+#     background: '#F7F6FF'
+#     foreground: '#3A4249'
+#   normal:
+#     black:   '#1d1f21'
+#     red:     '#B13232'
+#     green:   '#4DB132'
+#     yellow:  '#B0B132'
+#     blue:    '#3259B1'
+#     magenta: '#B132AE'
+#     cyan:    '#32A2B1'
+#     white:   '#B0B0B0'
+#   bright:
+#     black:   '#666666'
+#     red:     '#D93F3F'
+#     green:   '#60D93F'
+#     yellow:  '#D9D93F'
+#     blue:    '#3F70D9'
+#     magenta: '#c397d8'
+#     cyan:    '#3FC7D9'
+#     white:   '#F7F6FF'
+
+colors:
+  primary:
+    background: '#27282A'
+    foreground: '#CAD0DD'
+  normal:
+    black:   '#515355'
+    red:     '#865956'
+    green:   '#486e3e'
+    yellow:  '#7c7c46'
+    blue:    '#52648d'
+    magenta: '#845683'
+    cyan:    '#476c72'
+    white:   '#B0B0B0'
+  bright:
+    black:   '#515355'
+    red:     '#a56d6a'
+    green:   '#719d65'
+    yellow:  '#a5a566'
+    blue:    '#7289bc'
+    magenta: '#a575a4'
+    cyan:    '#6f9297'
+    white:   '#F7F6FF'
+
+bell:
+  animation: EaseOutSine
+  duration: 150
+  color: '#555555'
+
+cursor:
+  vi_mode_style: Underline
+
+shell:
+  program: /home/flisan/.blin-tool/tmux-try-attach
+
+mouse:
+  hide_when_typing: true
+
