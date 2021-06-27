@@ -9,7 +9,7 @@ set showmode " 現在のモードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 "set ruler " ステータスラインの右側にカーソルの現在位置を表示する
 
-" highlight Normal ctermbg=NONE guibg=NONE
+highlight Comment ctermfg=249
 " highlight NonText ctermbg=NONE guibg=NONE
 " highlight SpecialKey ctermbg=NONE guibg=NONE
 " highlight EndOfBuffer ctermbg=NONE guibg=NONE
@@ -21,8 +21,8 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 " set termguicolors
 "
 " let g:solarized_termcolors=256
-set background=light
-colorscheme one
+" set background=light
+colorscheme dirog
 
 " let g:solarized_termtrans=1
 " autocmd vimenter * colorscheme molokai

@@ -84,3 +84,7 @@ function hentai_yarn() {
   done
   echo "\e[38;5;213;1myarn \"${word}\"\e[m"
 }
+
+function beyond() {
+  tmux split-window -b -l 66 ${1:-nvim}
+}

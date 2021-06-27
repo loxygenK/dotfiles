@@ -1,66 +1,67 @@
 format = """
- [┌─](fg:245)$directory\
-($git_branch$git_commit$git_state$git_status)\
+ $directory\
 $jobs\
+($git_branch$git_commit$git_status$git_state)\
 $cmd_duration$memory_usage
  \
- [└──](fg:245)$character"""
+ [ └─](fg:245)$character"""
 
 # Provide the characters based on the result of the previous command.
 [character]
-success_symbol = "[▶](27)"
-error_symbol = "[▶](90)"
-vicmd_symbol = "[■](fg:33)"
+success_symbol = "[>](12)"
+error_symbol = "[>](1)"
+vicmd_symbol = "[\ue62b](2)"
 
 # Provide the name of the current directory.
 [directory]
 truncation_length = 2
 truncate_to_repo = false
-format = "[$read_only]($read_only_style)[$path]($style)"
-style = "32 bold"
+format = "[ [$read_only]($read_only_style)\uf07b $path ]($style)"
+style = "bg:4 fg:15 bold"
 
 # Provide the name of the branch.
 [git_branch]
-format = "[([ | ](fg:245)$branch)]($style)"
-style = "25 bold"
+format = " [ (\uf418 $branch) ]($style)"
+style = "bg:4 fg:15 bold"
 
 # Provide the current hash commit.
 # Only when the HEAD is detached.
 [git_commit]
-format = "[\\($hash\\)]($style)"
-style = "25"
+format = "[$hash ]($style)"
+style = "bg:4 fg:15"
 
 # Provide the current status of the repository
 [git_state]
-format = " [$state(\\($progress_current/$progress_total\\))]($style)"
-style = "66"
+format = "  [\ufc0c $state(\\($progress_current/$progress_total\\))]($style)"
+style = "bg:4 fg:15"
 
 [git_status]
-conflicted = " X CF"
-ahead = " ↑"
-behind = " ↓"
-diverged = " ↕"
-untracked = " ?"
-staged = " [✓\\($count\\)](bold 69)"
-modified = " MD"
-renamed = " RN"
-deleted = " DL"
-stashed = " ST"
+conflicted = " [\ufc85](1) "
+ahead = " \uf0ee"
+behind = " \uf0ed"
+diverged = " \ufb3e"
+untracked = " \uf059"
+staged = " [\uf632](10)"
+modified = " \uf040"
+renamed = " \uf751"
+deleted = " \uf1f8"
+stashed = " \uf01c"
 format = "([$all_status$ahead_behind]($style))"
-style = "69"
+style = "12"
 
 [jobs]
-symbol = " +"
+symbol = "\uf683 "
+style = "bg:6 fg:15"
 
 [cmd_duration]
 min_time = 99
 show_milliseconds = true
-format = " [$duration]($style)"
-style = "111"
+format = "  [\ufa1a$duration]($style)"
+style = "12"
 
 [memory_usage]
 disabled = false
-threshold = 50
-format=" [${ram}\\(${ram_pct}\\)]($style)"
-style = "64"
+threshold = 5
+format="  [\uf85a ${ram}\\(${ram_pct}\\)]($style)"
+style = "12"
 

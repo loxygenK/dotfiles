@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'dirog',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
