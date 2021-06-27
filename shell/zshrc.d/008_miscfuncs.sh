@@ -68,6 +68,7 @@ function decrypt() {
 }
 
 function hentai_yarn() {
+  [ -v SKIP_HENTAI_YARN ] && return
   # more word needed, pr is welcome!
   # (yes im crazy, i dont even know why i did this)
   iyarn=("ああっ…" "あはっ…" "あんっ…" "はあっ…" "ははっ…" "はんっ…" "んあっ…" "んはっ…" "んんっ…"

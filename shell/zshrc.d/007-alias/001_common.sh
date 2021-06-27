@@ -25,6 +25,11 @@ alias nv="nvim"
 
 alias al "sl -a"
 
+alias exa="exa --icons"
+alias ls="exa"
+alias tree="exa --tree"
+alias treel="exa --tree -l"
+
 alias du="du -h"
 alias df="df -Th"
 alias su="su -l"
