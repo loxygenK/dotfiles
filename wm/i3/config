@@ -7,6 +7,8 @@
 ############## Design Configuration ################
 
 ##### Define Colors #####
+set $back_prim  #d8e0f2
+set $fore_prim  #3c4b6a
 set $background #caebff
 set $workspace_container #a9aac2
 set $focus_back #cacceb
@@ -18,24 +20,25 @@ set $focus #aed5e6
 set $emergency #d1828e
 
 ##### Title bar configuration #####
-font pango:JetBrainsMono Nerd Font Mono Bold 9.5
+font pango:JetBrainsMono Nerd Font 9.5
 title_align center
 
 ##### Window Colors/Layouts #####
 for_window [class="^.*"] border pixel 2
 
-client.focused $border $border $foreground
-client.focused_inactive $border $border $foreground
-client.unfocused $background $background $foreground $foreground
-client.urgent $emergency $emergency $flip_fore $flip_fore
+client.focused          $back_prim  $back_prim  $foreground
+client.focused_inactive $border     $border     $foreground
+client.unfocused        $background $background $foreground $foreground
+client.urgent           $emergency  $emergency  $flip_fore  $flip_fore
 gaps inner 20
-# smart_gaps on
+smart_gaps on
 
 ############## Auto-start Configuration ######################
 
 ##### System tools #######
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id i3-workspace-names-daemon
 
 ##### Nice tools #####
 exec --no-startup-id fcitx
@@ -44,6 +47,7 @@ exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper.png"
 exec --no-startup-id "picom -cb"
 exec --no-startup-id "conky -m 0"
 exec --no-startup-id "conky -m 1"
+exec --no-startup-id "conky -m 2"
 exec --no-startup-id "kdeconnect-indicator"
 
 ############## Keybind Configuration ##################
@@ -113,7 +117,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -b -i -p "Dmenu " -nb "$focus" -nf
 bindsym $mod+Ctrl+l exec dm-tool lock
 
 
-bindsym $mod+Shift+S exec --no-startup-id flameshot gui
+bindsym $mod+Shift+S exec --no-startup-id "flameshot gui -g; picom -bc"
 
 ##### Control Computer #####
 
@@ -179,10 +183,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -207,19 +211,19 @@ bindsym $mod+r mode "resize"
 bar {
         height 40
         status_command i3blocks
-        font pango:Fira Code Retina 9.5
+
         mode dock
         position bottom
         separator_symbol "･"
         tray_padding 4
         colors {
-          background $background
-          focused_background $focus_back
+          background $back_prim
+          focused_background $back_prim
           statusline $foreground
           focused_statusline $focus_fore
           separator $border
           focused_separator $border
-          focused_workspace $focus $focus $flip_fore
+          focused_workspace $fore_prim $fore_prim $back_prim
           active_workspace $focus $focus $flip_fore
           inactive_workspace $workspace_container $workspace_container $foreground
           urgent_workspace $emergency $emergency $flip_fore
