@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+SIUNIT=$(free -ht | awk '{ if($1 == "Total:") printf("%s/%s", $3, $2) }')
+PERCENTAGE=$(free -t | awk '{ if($1 == "Total:") printf("%.1f%%", $3/$2 * 100) }')
+
+echo "$SIUNIT($PERCENTAGE)"
+

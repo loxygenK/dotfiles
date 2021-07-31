@@ -1,0 +1,18 @@
+#!/bin/python3
+
+import json
+import random
+
+words = (
+    "Try doing it **your** best. The result follows it.",
+    "You are you.",
+    "Don't care too much what others want, but what you want and should be."
+)
+
+json_data = {
+    "color": "#555555",
+    "font": "Noto Sans CJK JP",
+    "full_text": words[random.randint(0, len(words) - 1)]
+}
+
+print(json.dumps(json_data))
