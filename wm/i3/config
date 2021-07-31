@@ -24,14 +24,14 @@ font pango:JetBrainsMono Nerd Font 9.5
 title_align center
 
 ##### Window Colors/Layouts #####
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border none
 
 client.focused          $back_prim  $back_prim  $foreground
 client.focused_inactive $border     $border     $foreground
 client.unfocused        $background $background $foreground $foreground
 client.urgent           $emergency  $emergency  $flip_fore  $flip_fore
-gaps inner 20
-smart_gaps on
+
+gaps inner 15
 
 ############## Auto-start Configuration ######################
 
@@ -49,6 +49,7 @@ exec --no-startup-id "conky -m 0"
 exec --no-startup-id "conky -m 1"
 exec --no-startup-id "conky -m 2"
 exec --no-startup-id "kdeconnect-indicator"
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 ############## Keybind Configuration ##################
 
@@ -203,29 +204,5 @@ mode "resize" {
 ##### Calling Modes #####
 bindsym $mod+r mode "resize"
 
-################### Configurating i3blocks #####################
-
-# For the configuration of contents in i3blocks,
-# see "wm/i3blocks".
-
-bar {
-        height 40
-        status_command i3blocks
-
-        mode dock
-        position bottom
-        separator_symbol "･"
-        tray_padding 4
-        colors {
-          background $back_prim
-          focused_background $back_prim
-          statusline $foreground
-          focused_statusline $focus_fore
-          separator $border
-          focused_separator $border
-          focused_workspace $fore_prim $fore_prim $back_prim
-          active_workspace $focus $focus $flip_fore
-          inactive_workspace $workspace_container $workspace_container $foreground
-          urgent_workspace $emergency $emergency $flip_fore
-        }
-}
+# The bar is provided by polybar.
+# Please refer "/path/to/repo/wm/polybar".
