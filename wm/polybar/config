@@ -69,7 +69,7 @@ font-2 = Twemoji:fontformat=truetype:scale=4;1
 
 modules-left = powermenu bspwm i3
 # modules-center = mpd
-modules-right = filesystem xbacklight pulseaudio cpu memory wlan eth battery temperature date
+modules-right = filesystem xbacklight pulseaudio cpu memory eth-down eth-up ip battery temperature date
 
 tray-position = right
 tray-padding = 1
@@ -232,18 +232,18 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors/module.mem}
 label = %gb_used%(%percentage_used%%)
 
-[module/wlan]
+[module/eth-down]
 type = internal/network
 interface = enp5s0
 interval = 3.0
 
-format-connected-prefix = "歷 NET "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-underline = ${colors/module.network}
 
-label-connected =  %upspeed:9%  %downspeed:9%
+label-connected = %downspeed:9%
 
-format-disconnected =  D/CON
+format-disconnected =  d/con
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -257,7 +257,32 @@ ramp-signal-4 = 😃
 ramp-signal-5 = 😈
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+[module/eth-up]
+type = internal/network
+interface = enp5s0
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-underline = ${colors/module.network}
+
+label-connected = %upspeed:9%
+
+format-disconnected =  d/con
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/ip]
 type = internal/network
 interface = enp5s0
 interval = 3.0
