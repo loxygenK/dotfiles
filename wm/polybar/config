@@ -34,7 +34,7 @@ network = ${colors.background-alt}
 date = ${colors.background-alt}
 vol = ${colors.background-alt}
 
-[bar/example]
+[bar/execute]
 monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 35
