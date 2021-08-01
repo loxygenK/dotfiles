@@ -17,28 +17,34 @@
 ;==========================================================
 
 [colors]
-background = #E4D0F4
-background-alt = #AC91C2
-; background-alt = #9f78e1
+; Base vivid color: #ff00ae
 
-foreground = #051229
-foreground-alt = #69527d
-primary = #87A894
+background = #f2d5ea
+; background = #f5d7ec
+; background = #ebcee2
+
+background-alt = #e6a8d2
+background-accent = #f09ed6
+
+foreground = #1a1016
+foreground-alt = #6b3e5d
+primary = #bfdbba
+
 secondary = #CCBFAB
 alert = #b37491
 
 [colors/module]
-cpu = ${colors.background-alt}
-mem = ${colors.background-alt}
-network = ${colors.background-alt}
-date = ${colors.background-alt}
-vol = ${colors.background-alt}
+cpu = ${colors.background-accent}
+mem = ${colors.background-accent}
+network = ${colors.background-accent}
+date = ${colors.background-accent}
+vol = ${colors.background-accent}
 
 [bar/execute]
 monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 35
-radius = 6.0
+radius = 9.0
 fixed-center = false
 
 background = ${colors.background}
@@ -58,7 +64,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = JetBrainsMono Nerd Font:pixelsize=16;1
+font-0 = JetBrainsMono Nerd Font:pixelsize=16;3
 font-1 = IBM Plex Sans JP:fontformat=truetype:weight=medium:size=15;3
 font-2 = Twemoji:fontformat=truetype:scale=4;1
 
@@ -76,13 +82,13 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:100:...%
+label = %title:0:50:...%
 label-font = 2
 label-foreground = ${colors.foreground-alt}
 
 label-empty = "No title"
 label-empty-font = 2
-label-empty-foreground = ${colors.background-alt}
+label-empty-foreground = ${colors.background-accent}
 
 [module/filesystem]
 type = internal/fs
@@ -92,7 +98,7 @@ mount-0 = /
 
 format-mounted-prefix = " DRV: "
 format-mounted-prefix-foreground = ${colors.foreground-alt}
-format-mounted-underline = ${colors.background-alt}
+format-mounted-underline = ${colors.background-accent}
 label-mounted = %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -112,7 +118,7 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.background-accent}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -222,29 +228,39 @@ type = custom/menu
 
 expand-right = true
 
+format-background = ${colors.background-alt}
 format-spacing = 1
 
-label-open = " "
+label-open = "   "
 label-open-foreground = ${colors.foreground-alt}
+; label-open-background = ${colors.background-accent}
 label-close = " "
 label-close-foreground = ${colors.foreground-alt}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = Reboot
+menu-0-0 = Logout
 menu-0-0-exec = #powermenu.open.1
-menu-0-1 = Shutdown
+menu-0-1 = Reboot
 menu-0-1-exec = #powermenu.open.2
+menu-0-2 = "Shutdown "
+menu-0-2-exec = #powermenu.open.3
 
-menu-1-0 = " No  "
+
+menu-1-0 = " No"
 menu-1-0-exec = #powermenu.open.0
-menu-1-1 = " Yes   "
-menu-1-1-exec = sudo reboot
+menu-1-1 = " Yes "
+menu-1-1-exec = i3-msg exit
 
-menu-2-0 = " Yes "
-menu-2-0-exec = sudo poweroff
-menu-2-1 = " No    "
-menu-2-1-exec = #powermenu.open.0
+menu-2-0 = " No"
+menu-2-0-exec = #powermenu.open.0
+menu-2-1 = " Yes "
+menu-2-1-exec = systemctl reboot
+
+menu-3-0 = " No"
+menu-3-0-exec = #powermenu.open.0
+menu-3-1 = " Yes "
+menu-3-1-exec = systemctl poweroff
 
 [settings]
 screenchange-reload = true
