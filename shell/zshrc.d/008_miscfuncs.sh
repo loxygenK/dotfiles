@@ -34,3 +34,6 @@ function hentai_yarn() {
 function beyond() {
   tmux split-window -b -l 66 ${*:-nvim}
 }
+function spv() {
+  tmux split-window "$*"
+}
