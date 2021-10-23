@@ -62,6 +62,8 @@ abbr lst='ls -ltr'
 abbr la='ls -la'
 abbr ll='ls -l'
 
+# abbr flutter='fvm flutter'
+
 abbr tma='tmux attach'
 abbr tml='tmux list-window'
 
@@ -70,11 +72,14 @@ abbr dex="docker exec -i -t"
 abbr drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 abbr gs="git status -bs"
+abbr gsb="git status"
 abbr gb="git branch"
 abbr gd="git diff"
 abbr gds="git diff --staged"
-abbr gc="git checkout"
-abbr gp="git push origin "
+abbr ga="git add"
+abbr gc="git commit"
+abbr gps="git push origin"
+abbr gpl="git pull origin"
 abbr gg="git log --oneline --graph"
 
 unalias abbr
