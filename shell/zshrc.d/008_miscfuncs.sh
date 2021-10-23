@@ -1,6 +1,7 @@
 function color_sample(){
   echo -e "usage: \\\\e[38;5;\$color;1m ... \\\\e[m"
-  for c in {000..255}; do echo -n "\e[38;5;${c};1m $c \e[m" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+  for c in {00..15}; do echo -n "\e[38;5;${c};1m $c \e[m"; done;echo
+  for c in {016..255}; do echo -n "\e[38;5;${c};1m $c \e[m" ; [ $((($c - 16)%12)) -eq 11 ] && echo;done;echo
 }
 
 function encrypt() {
@@ -31,5 +32,5 @@ function hentai_yarn() {
 }
 
 function beyond() {
-  tmux split-window -b -l 66 ${1:-nvim}
+  tmux split-window -b -l 66 ${*:-nvim}
 }
