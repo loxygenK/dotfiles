@@ -47,6 +47,8 @@ exec --no-startup-id "conky -m 0"
 exec --no-startup-id "conky -m 1"
 exec --no-startup-id "conky -m 2"
 exec --no-startup-id "kdeconnect-indicator"
+exec --no-startup-id "i3-msg 'workspace number 1; exec --no-startup-id slack; exec --no-startup-id vivaldi-stable'"
+exec --no-startup-id "i3-msg 'workspace number 3; exec --no-startup-id i3-sensible-terminal'"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 ############## Keybind Configuration ##################
@@ -110,16 +112,19 @@ bindsym $mod+a focus parent
 
 ##### Execute software #####
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+d exec --no-startup-id dmenu_run -b -i -p "Dmenu " -nb "$focus" -nf "$flip_fore" -sb "$background" -sf "$foreground" -fn "JetBrainsMono Nerd Font Mono-9.5"
+# bindsym $mod+d exec --no-startup-id dmenu_run -b -i -p "Dmenu " -nb "$border_active" -nf "$active_tab_foreground" -sb "$border_unfocused" -sf "$active_tab_foreground" -fn "JetBrainsMono Nerd Font Mono-9.5"
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Shift+f exec --no-startup-id rofi -show file-browser
 
 ##### Lock screen
 bindsym $mod+Ctrl+l exec dm-tool lock
 
+bindsym $mod+period exec --no-startup-id rofi -show emoji -modi emoji
 
 bindsym $mod+Shift+S exec --no-startup-id "flameshot gui -g; picom -bc"
 
 ##### Control Computer #####
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

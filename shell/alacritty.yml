@@ -2,9 +2,29 @@
 #
 font:
   normal:
-    family: JetBrainsMono Nerd Font
-    style: Regular
-  size: 7.5
+    family: PlemolJP Console NF
+    style: Text
+  size: 8.5
+  #normal:
+  #  family: Sarasa Mono J
+  #  style: Text
+  #size: 10
+  #normal:
+  #  family: HackGen Console
+  #  style: Regular
+  #size: 9.5
+  #normal:
+  #  family: Ricty Diminished
+  #  style: Regular
+  #size: 9.5
+  #normal:
+  #  family: JetBrains Mono Nerd Font
+  #  style: Regular
+  #size: 8.5
+
+  offset:
+    x: 0
+    y: -1
 
 # colors:
 #   primary:

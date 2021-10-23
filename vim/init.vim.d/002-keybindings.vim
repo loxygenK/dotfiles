@@ -51,6 +51,10 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
+" ブラックホールレジスタを指定する
+nnoremap \ "_
+vnoremap \ "_
+
 " ワードラップをトグルする
 command! ToggleWrap call ToggleWrap()
 noremap SW :ToggleWrap<CR>
@@ -64,7 +68,7 @@ noremap SR :ToggleRelativeLineNumber<CR>
 nnoremap fal mZ:%s/\s*$//g<CR>:%s/\v^\s//g<CR>ggVG='Z:delmarks Z<CR>
 
 " Escキーを便利にする
-tnoremap <C-[><C-[> <C-\><C-n>
+inoremap <C-k> <C-\><C-n>
 
 " タブ文字問題を瞬時に解決する
 nnoremap fs :set tabstop=2<CR>
@@ -92,8 +96,7 @@ nmap <silent> <C-t>      <Plug>(coc-type-definition)
 nmap <silent> <C-i>      <Plug>(coc-implementation)
 nmap <silent> <C-r>      <Plug>(coc-references)
 
-let mapleader = " "
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 nmap <C-m> <leader>aw

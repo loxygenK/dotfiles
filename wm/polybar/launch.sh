@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 exec_polybar() {
-  polybar execute 2>&1 | tee -a /tmp/polybar1.log & disown
+  polybar --reload execute 2>&1 | tee -a /tmp/polybar1.log & disown
 }
 
 # Terminate already running bar instances

@@ -64,3 +64,15 @@ repo = "rakr/vim-one"
 repo = "nvim-treesitter/nvim-treesitter"
 hook_post_update = "TSUpdate"
 
+[[plugins]]
+repo = "diepm/vim-rest-console"
+
+[[plugins]]
+repo = "Shougo/defx.nvim"
+
+[[plugins]]
+repo = "skanehira/preview-markdown.vim"
+
+[[plugins]]
+repo = "previm/previm"
+
