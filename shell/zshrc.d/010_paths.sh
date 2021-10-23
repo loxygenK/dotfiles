@@ -19,6 +19,7 @@ alias pipallupgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xarg
 # No dependencies
 
 export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk/
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
@@ -27,10 +28,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.selfmade_nice_programs
 
-export PATH="$PATH:$HOME/.flutter/bin"
+export PATH="$PATH:$HOME/fvm/default/bin"
 
 export PATH="$PATH:/usr/lib/dart/bin"
-export PATH="~/.pub-cache/bin:$PATH"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 export PATH="$PATH:$HOME/.blin-tool"
 
@@ -45,7 +46,7 @@ export PATH="$PATH:$HOME/.executable"
 
 if which go > /dev/null 2>&1  ; then
   export CGO_ENABLED=1
-  export GOPATH=$HOME/dev/go
+  export GOPATH=$HOME/.go/
   export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 fi
 
