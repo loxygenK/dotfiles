@@ -24,6 +24,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+--[[ variables ]]
+foreground = "#e6a8d2"
+fonttitle = 'IBM Plex Sans JP:size=36:weight=medium'
+fontdef = 'IBM Plex Sans JP:size=16'
+fontmono = 'JetBrainsMono Nerd Font:size=12'
+
 conky.config = {
 --[[ Software Behaivor Configuration ]]
     background = true,
@@ -38,6 +44,7 @@ conky.config = {
     own_window = true,
     own_window_type = 'override',
     own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     own_window_argb_visual = true,
     own_window_argb_value = 255,
     use_xft = true,
@@ -47,36 +54,41 @@ conky.config = {
     use_spacer = 'none',
 
 --[[ Position ]]
-    alignment = 'bottom_middle',
-    gap_y = 600,
-    gap_x = 2,
+    alignment = 'bottom_left',
+    gap_x = 15,
+    gap_y = 0,
     minimum_height = 5,
     minimum_width = 5,
 
 --[[ Appearance ]]
     border_width = 1,
-    default_color = '#a5b3bd',
-    default_outline_color = '#a5b3bd',
-    default_shade_color = '#a5b3bd',
+    default_color = foreground,
     draw_borders = false,
     draw_graph_borders = true,
     draw_outline = false,
     draw_shades = false,
     extra_newline = false,
-    font = 'JetBrainsMonoMedium Nerd Font Mono:size=11',
+    font = fontmono,
     show_graph_range = false,
     show_graph_scale = false,
     stippled_borders = 0,
     uppercase = false,
+    imlib_cache_size = 0,
+    format_human_readable = true,
+    draw_graph_borders = false,
+    use_xft = true,
+    override_utf8_locale = true,
+    text_buffer_size = 2048,
 }
 
 conky.text = [[
-${alignc}${font FontAwesome}${font} $freq_g GHz ${font FontAwesome}${font} $mem ${font FontAwesome}${font} $processes ${font FontAwesome}${font} $running_processes
-
-${font FontAwesome}${font} v4 ${texeci 30 ip addr show enp5s0 | grep --regexp "inet[^6]" | awk '{sub("/.*", ""); print $2}'}
-${font FontAwesome}${font} v6 ${texeci 30 ip addr show enp5s0 | grep --regexp "inet6" | awk '{sub("/.*", ""); print $2}'}
-
+${font IBM Plex Sans JP:size=36:weight=medium}${exec "cat /etc/os-release | awk -F'\\\\n' '{ if(match($1, /^PRETTY_NAME/)) { print gensub(/PRETTY_NAME="(.*)"/, "\\1", "g") } }'"}$font
 $sysname $nodename $kernel $machine
-CPU ${cpubar 6}
-MEM ${membar 6}
-]]
+
+ v4 ${texeci 30 "ip addr show enp5s0 | grep --regexp 'inet[^6]' | awk '{sub("/.*", ""); print $2}'"}
+ v6 ${texeci 30 "ip addr show enp5s0 | grep --regexp 'inet6' | awk '{sub("/.*", ""); print $2}'"}
+
+ﮮ ${execpi 3600 checkupdates | wc -l} packages upgradable
+
+CPU ${cpubar 15}
+MEM ${membar 15}]]
