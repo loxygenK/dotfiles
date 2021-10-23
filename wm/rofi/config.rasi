@@ -1,0 +1,135 @@
+configuration {
+  modi: "window,run,ssh";
+  font: "PlemolJP Console NF Regular 16";
+  show-icons: true;
+  icon-theme: "hicolor";
+  drun-display-format: "{exec} | {name}";
+  sidebar-mode: true;
+
+}
+
+* {
+  width: 50em;
+  lines: 15;
+
+  /* Color */
+  foreground: #000000;
+  foreground-alt: #000000;
+  background: rgba(0, 0, 0, 0);
+  background-prim: #FCF5FA;
+  background-alt: rgba(252, 217, 232, 0.95); // #fcd9e8
+  background-input: #FFFCFD;
+
+  border-color: #fac8dd;
+
+  /* Font */
+  base-font: "PlemolJP Console NF 14";
+  accent-font: "PlemolJP Console NF Bold 14";
+  input-font: "PlemolJP Console NF Light 25";
+  input-accent-font: "PlemolJP Console NF Medium 25";
+}
+
+window {
+  // border: 1px;
+  // border-color: @border-color;
+  // border-radius: 5px;
+
+  padding: none;
+  border: none;
+}
+
+mainbox {
+  border: none;
+
+  children: [inputbar, listview];
+}
+
+inputbar {
+
+  border: 0px;
+  padding: 1em 1.5em;
+
+  background-color: @background-input;
+
+  children: [ prompt, entry ];
+
+  margin: 0 0 1em 0;
+}
+
+prompt, textbox-prompt-sep, entry, case-indicator {
+
+  background-color: @background-input;
+  font: @input-font;
+  padding-bottom: 2em;
+
+  line-margin: -1.0;
+}
+
+prompt {
+  border: 0px;
+  text-color: @foreground-alt;
+  font: @input-accent-font;
+
+  margin: 0 0.5em 0 0;
+
+}
+
+listview {
+  scrollbar: true;
+
+  border: none;
+
+  background-color: @background-prim;
+}
+
+scrollbar {
+  background-color: @background-alt;
+  handle-width: 10px;
+  handle-color: @foreground;
+}
+
+element {
+  border: 0;
+  padding: 3px 12px;
+
+  child: [element-text];
+}
+
+element.active.selected {
+  background-color: #000000;
+}
+
+element, element normal, element normal.normal, element normal.urgent, element normal.active,
+{
+    background-color: @background-prim;
+    text-color:       @foreground;
+}
+
+element alternate, element alternate.normal, element alternate.urgent, element alternate.active,
+{
+    background-color: @background-prim;
+    text-color:       @foreground;
+}
+
+element selected, element selected.normal, element selected.urgent, element selected.active,
+{
+  background-color: @background-alt;
+  text-color: @foreground-alt;
+}
+
+mode-switcher {
+  background-color: @background-prim;
+}
+
+button {
+  background-color: @background-prim;
+  padding: 5px;
+}
+
+
+textbox {
+  padding: 10px;
+  bckground-color: @background-prim;
+}
+
+/* vim: set syntax=scss: */

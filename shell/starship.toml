@@ -1,28 +1,28 @@
 format = """
  $directory\
 $jobs\
-($git_branch$git_commit$git_status$git_state)\
+($git_state$git_branch$git_commit$git_status)\
 $cmd_duration$memory_usage
  \
  [ └─](fg:245)$character"""
 
 # Provide the characters based on the result of the previous command.
 [character]
-success_symbol = "[>](12)"
-error_symbol = "[>](1)"
+success_symbol = "[>](13)"
+error_symbol = "[#](9)"
 vicmd_symbol = "[\ue62b](2)"
 
 # Provide the name of the current directory.
 [directory]
 truncation_length = 2
 truncate_to_repo = false
-format = "[ [$read_only]($read_only_style)\uf07b $path ]($style)"
-style = "bg:4 fg:15 bold"
+format = "[ ($read_only ) $path ]($style)"
+style = "bg:5 fg:15 bold"
 
 # Provide the name of the branch.
 [git_branch]
-format = " [ (\uf418 $branch) ]($style)"
-style = "bg:4 fg:15 bold"
+format = " [ $branch]($style) "
+style = "fg:13 bold underline"
 
 # Provide the current hash commit.
 # Only when the HEAD is detached.
@@ -32,7 +32,7 @@ style = "bg:4 fg:15"
 
 # Provide the current status of the repository
 [git_state]
-format = "  [\ufc0c $state(\\($progress_current/$progress_total\\))]($style)"
+format = "[ \ufc0c $state(\\($progress_current/$progress_total\\)) ]($style)"
 style = "bg:4 fg:15"
 
 [git_status]
@@ -47,7 +47,7 @@ renamed = " \uf751"
 deleted = " \uf1f8"
 stashed = " \uf01c"
 format = "([$all_status$ahead_behind]($style))"
-style = "12"
+style = "13"
 
 [jobs]
 symbol = "\uf683 "
@@ -57,11 +57,11 @@ style = "bg:6 fg:15"
 min_time = 99
 show_milliseconds = true
 format = "  [\ufa1a$duration]($style)"
-style = "12"
+style = "13"
 
 [memory_usage]
 disabled = false
-threshold = 5
+threshold = 30
 format="  [\uf85a ${ram}\\(${ram_pct}\\)]($style)"
-style = "12"
+style = "13"
 

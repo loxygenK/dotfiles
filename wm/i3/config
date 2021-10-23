@@ -7,29 +7,27 @@
 ############## Design Configuration ################
 
 ##### Define Colors #####
-set $back_prim  #d8e0f2
-set $fore_prim  #3c4b6a
-set $background #caebff
-set $workspace_container #a9aac2
-set $focus_back #cacceb
-set $border #8fc7f0
-set $foreground #3a3a40
-set $focus_fore #1c1c1f
-set $flip_fore #434d52
-set $focus #aed5e6
-set $emergency #d1828e
+set $border_active #fac8dd
+set $border_inactive #ebd1dc
+set $border_unfocused #fad9e7
+set $urgent #ed79a9
+
+set $active_tab_foreground #8a5a6d
+set $inactive_tab_foreground #9c7c89
+set $urgent_tab_foreground #f5e4eb
 
 ##### Title bar configuration #####
-font pango:JetBrainsMono Nerd Font 9.5
+font pango:JetBrainsMonoMedium Nerd Font 9.5
 title_align center
 
 ##### Window Colors/Layouts #####
-for_window [class="^.*"] border none
+for_window [class="^.*"] border pixel 3
 
-client.focused          $back_prim  $back_prim  $foreground
-client.focused_inactive $border     $border     $foreground
-client.unfocused        $background $background $foreground $foreground
-client.urgent           $emergency  $emergency  $flip_fore  $flip_fore
+# --------------------- border ---------- background------- text----------- indicator------
+client.focused          $border_active    $border_active    $active_tab_foreground
+client.focused_inactive $border_inactive  $border_inactive  $inactive_tab_foreground
+client.unfocused        $border_unfocused $border_unfocused $inactive_tab_foreground
+client.urgent           $urgent           $urgent           $urgent_tab_foreground
 
 gaps inner 15
 
