@@ -4,7 +4,7 @@ filetype off
 
 " 大きいリポジトリのダウンロードでエラーが起こらないようにする
 let g:dein#install_process_timeout = 600
-let g:dein#auto_recache = 1
+" let g:dein#auto_recache = 1
 
 if &compatible
   set nocompatible               " Be iMproved
