@@ -55,32 +55,32 @@ hook_add = """
 [[plugins]]
 repo = "honza/vim-snippets"
 
-# 複数のファイルタイプが混合するファイルで
-# 幸せになれる
-[[plugins]]
-repo = "Shougo/context_filetype.vim"
-
-# 幸せみを加速する
-[[plugins]]
-repo = "osyo-manga/vim-precious"
-depends = ["context_filetype.vim"]
-hook_add = """
-  let g:context_filetype#filetypes = {}
-  let g:context_filetype#filetypes.progrep = [
-      \         {
-      \           'filetype' : 'c',
-      \           'start' : '^\s*■ソースコード\s*$',
-      \           'end' : '^\s*■実行結果\s*$'
-      \         }
-      \     ]
-" let g:context_filetype#filetypes["typescript.tsx"] = [
-"     \          {
-"     \            'filetype' : 'css',
-"     \            'start' : '^\s*const\s\+\w\+\s\+=\s\+styled.\w\+`\s*$',
-"     \            'end' : '\s*`;\s*'
-"     \          }
-"     \      ]
-"""
+# # 複数のファイルタイプが混合するファイルで
+# # 幸せになれる
+# [[plugins]]
+# repo = "Shougo/context_filetype.vim"
+# 
+# # 幸せみを加速する
+# [[plugins]]
+# repo = "osyo-manga/vim-precious"
+# depends = ["context_filetype.vim"]
+# hook_add = """
+#   let g:context_filetype#filetypes = {}
+#   let g:context_filetype#filetypes.progrep = [
+#       \         {
+#       \           'filetype' : 'c',
+#       \           'start' : '^\s*■ソースコード\s*$',
+#       \           'end' : '^\s*■実行結果\s*$'
+#       \         }
+#       \     ]
+# " let g:context_filetype#filetypes["typescript.tsx"] = [
+# "     \          {
+# "     \            'filetype' : 'css',
+# "     \            'start' : '^\s*const\s\+\w\+\s\+=\s\+styled.\w\+`\s*$',
+# "     \            'end' : '\s*`;\s*'
+# "     \          }
+# "     \      ]
+# """
 
 # かっこがカラフルになる
 [[plugins]]

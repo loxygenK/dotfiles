@@ -18,13 +18,10 @@ if dein#load_state(g:vim_dir)
 
   call dein#begin(g:vim_dir)
 
-  call dein#load_toml(g:rc_dir . "/misc.toml", {"lazy": 0})
-  call dein#load_toml(g:rc_dir . "/system.toml", {"lazy": 0})
-
-  let toml_list = split(glob(g:rc_dir . "/lang/*.toml"), "\n")
+  let toml_list = split(glob(g:rc_dir . "/**/*.toml"), "\n")
 
   for file in toml_list
-                echom "      --> Loading plugin from " . file
+    echom "      --> Loading plugin from " . file
     call dein#load_toml(file)
   endfor
 

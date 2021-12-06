@@ -1,55 +1,14 @@
-  # 世界の始まり
-  [[plugins]]
-  repo = "Shougo/dein.vim"
+# 世界の始まり
+[[plugins]]
+repo = "Shougo/dein.vim"
 
-  # Neovitのフレームワークだと思います
-  [[plugins]]
-  repo = 'roxma/nvim-yarp'
+# Neovitのフレームワークだと思います
+[[plugins]]
+repo = 'roxma/nvim-yarp'
 
-  # ソケットで通信してなんかできるやつ
-  [[plugins]]
-  repo = 'roxma/vim-hug-neovim-rpc'
-
-  # つよつよLinter+Fixer
-  [[plugins]]
-  repo = 'dense-analysis/ale'
-  hook_add = """
-    " 何のLinterとFixerを使うか
-    let g:ale_linters = {
-          \  'c': ['clangd'],
-          \ 'cpp': ['clangd'],
-          \  'text': ['textlint']
-          \}
-    let g:ale_fixers = {
-          \  'python': ['autopep8', 'isort'],
-          \ 'dart': ['dartfmt']
-          \}
-
-    " 保存時に勝手にfixする
-    let g:ale_fix_on_save = 1
-
-    " エラーが出てなくても左の帯を出す
-    let g:ale_sign_column_always = 1
-
-    " すぐLintする
-    let g:ale_lint_delay = 0
-
-    let g:ale_set_balloons = 1
-    let g:ale_set_loclist = 0
-    let g:ale_set_quickfix = 1
-
-    let g:ale_sign_error = "🤯"
-    let g:ale_sign_warning = "🤔"
-    let g:ale_sign_info = "👀"
-
-    let g:ale_echo_msg_format = "%linter%: %s"
-
-    let g:ale_open_list = 1
-    let g:ale_keep_list_window_open = 1
-  """
-
-  [[plugins]]
-  repo = "neoclide/coc.nvim"
+# ソケットで通信してなんかできるやつ
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = "yasukotelin/shirotelin"
