@@ -51,9 +51,9 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-" ブラックホールレジスタを指定する
-nnoremap \ "_
-vnoremap \ "_
+" " ブラックホールレジスタを指定する
+" nnoremap \ "_
+" vnoremap \ "_
 
 " ワードラップをトグルする
 command! ToggleWrap call ToggleWrap()
@@ -73,7 +73,7 @@ inoremap <C-k> <C-\><C-n>
 " タブ文字問題を瞬時に解決する
 nnoremap fs :set tabstop=2<CR>
 
-nnoremap cd :cd 
+" nnoremap cd :cd 
 
 " 補完を使いやすくする
 " From: https://vim.fandom.com/wiki/Improve_completion_popup_menu
@@ -97,7 +97,12 @@ nmap <silent> <C-i>      <Plug>(coc-implementation)
 nmap <silent> <C-r>      <Plug>(coc-references)
 
 nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 nmap <C-m> <leader>aw
+
+" Redo
+nnoremap U :redo
+
+autocmd VimEnter * execute 'Defx'
+nnoremap <silent> <Leader>f :<C-u> Defx <CR>
 

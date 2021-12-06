@@ -6,6 +6,9 @@ set shiftwidth=0
 set hls is
 set backspace=indent,eol,start
 
+" Prevent hidden buffers
+set nohidden
+
 set cursorline
 set cursorcolumn
 

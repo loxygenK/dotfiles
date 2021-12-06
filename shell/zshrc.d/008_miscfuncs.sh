@@ -32,8 +32,30 @@ function hentai_yarn() {
 }
 
 function beyond() {
-  tmux split-window -b -l 66 ${*:-nvim}
+  tmux split-window -b -v -l 66% "${*:-nvim}" && \
+    tmux split-window -h -l 33% 'lazygit' && \
+    tmux select-pane -L
 }
+
+# Zoom lazygit
+function zlg() {
+  local LAZYGIT_PANE=$(tmux list-panes -aF "#{pane_start_command} (w#{window_index}/p#{pane_index}):#{pane_id}" | grep lazygit)
+
+  if [ "$LAZYGIT_PANE" = "" ]; then
+    echo "🤔 lazygit not found" >&2
+    return 1
+  fi
+
+  local LAZYGIT_PANE_HR=$(echo $LAZYGIT_PANE | awk -F':' '{ print $1 }')
+  local LAZYGIT_PANE_ID=$(echo $LAZYGIT_PANE | awk -F':' '{ print $2 }')
+
+  echo -ne "\a"
+  echo "✅ Found $LAZYGIT_PANE_HR; focusing!"
+
+  tmux switch-client -Z -t $LAZYGIT_PANE_ID
+}
+
+
 function spv() {
   tmux split-window "$*"
 }

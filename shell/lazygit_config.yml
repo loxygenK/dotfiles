@@ -1,0 +1,21 @@
+# lazygit configuration file.
+# Referred: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+gui:
+  scrollHeight: 3
+  theme:
+    selectedLineBgColor:
+      - reverse
+    activeBorderColor:
+      - yellow
+      - bold
+    inactiveBorderColor:
+      - gray
+  showFileTree: false
+
+git:
+  merging:
+    # Let merging fail when the fast-forwarding is not available
+    # to avoid messing up the commit tree unintentionally
+    args: '--ff-only'
+

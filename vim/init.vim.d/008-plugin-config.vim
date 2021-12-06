@@ -7,3 +7,11 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls'],
+    \ 'html': [],
+    \ 'css': [],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }

@@ -1,5 +1,5 @@
 " カレントディレクトリが変わったときにNERDTreeの場所も変える
-autocmd DirChanged * :NERDTreeCWD
+autocmd DirChanged * call defx#redraw()
 
 " いろんなファイルのファイルタイプを手動で設定する
 autocmd BufNewFile,BufRead,BufEnter .babelrc set filetype=json

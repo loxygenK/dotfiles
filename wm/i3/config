@@ -88,6 +88,29 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+###################################################
+
+bindsym $mod mode "i3wm"
+
+mode "i3wm" {
+  bindsym h focus left; mode "default"
+  bindsym j focus down; mode "default"
+  bindsym k focus up; mode "default"
+  bindsym l focus right; mode "default"
+
+  bindsym Return mode "default"
+  bindsym m mode "window-move"
+}
+
+mode "window-move" {
+  bindsym h move left; mode "default"
+  bindsym j move down; mode "default"
+  bindsym k move up; mode "default"
+  bindsym l move right; mode "default"
+
+  bindsym Return mode "default"
+}
+
 ##### Modify Layout #####
 
 # enter fullscreen mode for the focused container

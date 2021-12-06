@@ -2,10 +2,10 @@
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 
-# マークダウンをプレビューする
-[[plugins]]
-repo = "iamcco/markdown-preview.vim"
-on_ft = ["markdown"]
+# # マークダウンをプレビューする
+# [[plugins]]
+# repo = "iamcco/markdown-preview.vim"
+# on_ft = ["markdown"]
 
 # tomlのsyantax
 [[plugins]]
